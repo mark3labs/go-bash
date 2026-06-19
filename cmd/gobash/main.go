@@ -34,10 +34,12 @@ import (
 	"github.com/mark3labs/go-bash/network"
 )
 
-// version reported by --version. Kept in sync with just-bash's
-// "just-bash 1.0.0" output shape so consumers parsing the line by
-// regex see the same form.
-const version = "gobash 0.1.0"
+// version is the build version reported by --version. It defaults to
+// "dev" and is overwritten at release time via the goreleaser
+// ldflag -X main.version (see .goreleaser.yaml), matching the kit
+// convention. The --version line keeps its "gobash <version>" shape
+// so consumers parsing it by regex see a stable form.
+var version = "dev"
 
 // defaultMountPoint matches just-bash's OverlayFs default mount
 // point. The host --root directory is exposed at this virtual path;
@@ -47,7 +49,7 @@ const defaultMountPoint = "/home/user/project"
 // helpText is printed for -h/--help. The wording mirrors just-bash's
 // printHelp() output so shell completions and screen-scrapers that
 // rely on the just-bash text continue to work.
-const helpText = `gobash - A secure bash environment for AI agents (go port of just-bash)
+const helpText = `gobash - A secure bash environment for AI agents
 
 Usage:
   gobash [options] [script-file]
@@ -257,7 +259,7 @@ func Run(ctx context.Context, args []string, ioS IO) int {
 		return 0
 	}
 	if opts.version {
-		_, _ = fmt.Fprintln(ioS.Stdout, version)
+		_, _ = fmt.Fprintf(ioS.Stdout, "gobash %s\n", version)
 		return 0
 	}
 
