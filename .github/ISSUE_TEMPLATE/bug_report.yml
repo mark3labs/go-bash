@@ -1,0 +1,100 @@
+name: Bug Report
+description: Report a bug or issue with go-bash
+title: "fix: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: What happened? What did you expect to happen?
+      placeholder: |
+        Running `gobash -c "paste -sd+ <<< $'1\n2\n3'"` produces the wrong
+        output. The `-sd+` combined short flag is not being parsed: `paste`
+        treats it as if `-d` had no argument and joins with whatever its
+        default delimiter is. I expected `1+2+3`.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Provide a minimal script + invocation that triggers the bug.
+      placeholder: |
+        1. Build the gobash CLI: `go install github.com/mark3labs/go-bash/cmd/gobash@latest`
+        2. Run: `printf '1\n2\n3\n' | gobash -c "paste -sd+"`
+        3. Observe the output is `1\t2\t3` instead of `1+2+3`
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: code
+    attributes:
+      label: Relevant Code / Configuration
+      description: Paste any Go-side wiring, BashOptions, ExecOptions, or full script that triggers the bug.
+      placeholder: |
+        ```go
+        b, _ := gobash.New(gobash.BashOptions{})
+        res, _ := b.Exec(ctx, `printf '1\n2\n3\n' | paste -sd+`, gobash.ExecOptions{})
+        fmt.Printf("got: %q\n", res.Stdout)
+        // got: "1\t2\t3\n"  -- want "1+2+3\n"
+        ```
+      render: go
+
+  - type: input
+    id: component
+    attributes:
+      label: Affected Component
+      description: Which part of go-bash is affected? (e.g. specific builtin, parser, VFS layer, network, sandbox, CLI)
+      placeholder: e.g., builtins/paste, fs/overlayfs, network/securefetch, command registry
+
+  - type: input
+    id: version
+    attributes:
+      label: go-bash Version
+      description: What version are you running? `go list -m github.com/mark3labs/go-bash` or commit hash.
+      placeholder: e.g., v0.1.0, commit hash, or "master"
+
+  - type: input
+    id: goversion
+    attributes:
+      label: Go Toolchain
+      description: Output of `go version`
+      placeholder: e.g., go version go1.25.0 linux/amd64
+
+  - type: textarea
+    id: realbash
+    attributes:
+      label: Real-bash Behavior
+      description: What does real bash produce for the same script? Use `bash --version`, `bash -c '<script>'`. This pins the divergence.
+      placeholder: |
+        ```
+        $ bash --version
+        GNU bash, version 5.2.21(1)-release
+        $ printf '1\n2\n3\n' | bash -c "paste -sd+"
+        1+2+3
+        ```
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any other context — proposed fix, related issues, related divergences in DECISIONS.md.
+      placeholder: |
+        Looks like the bug is in `builtins/paste/paste.go` — the argv parser
+        treats `-sd+` as `-s -d` without consuming `+` as the value. Should
+        peek for an attached arg the way `getopt` does.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      options:
+        - label: I've searched existing issues and this hasn't been reported yet
+          required: true
+        - label: I've verified this isn't an already-documented divergence in DECISIONS.md
+          required: false
+        - label: I've tested with the latest version of go-bash
+          required: false

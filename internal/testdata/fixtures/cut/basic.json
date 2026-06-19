@@ -1,0 +1,8 @@
+{
+  "script": "printf 'a,b,c\\nd,e,f\\n' | cut -d, -f2",
+  "expected": {
+    "stdout": "b\ne\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

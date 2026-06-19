@@ -1,0 +1,8 @@
+{
+  "script": "/bin/eval echo hello",
+  "expected": {
+    "stdout": "hello\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

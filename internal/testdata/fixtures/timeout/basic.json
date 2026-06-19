@@ -1,0 +1,8 @@
+{
+  "script": "timeout 5 /bin/echo timed-ok",
+  "expected": {
+    "stdout": "timed-ok\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

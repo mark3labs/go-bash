@@ -1,0 +1,8 @@
+{
+  "script": "touch /tmp/a; ln -s /tmp/a /tmp/b && readlink /tmp/b",
+  "expected": {
+    "stdout": "/tmp/a\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

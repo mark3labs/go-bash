@@ -1,0 +1,15 @@
+/coverage.out
+/coverage.html
+/dist/
+*.test
+*.out
+.DS_Store
+
+# Editor scratch
+*.swp
+.idea/
+.vscode/
+
+# Optional: don't commit the imported just-bash sources if a future tooling
+# step pulls them in for fixture import. Reference paths live in SPEC.md.
+/reference/just-bash/

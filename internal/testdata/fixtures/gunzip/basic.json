@@ -1,0 +1,8 @@
+{
+  "script": "printf 'roundtrip\\n' | gzip -c | gunzip -c",
+  "expected": {
+    "stdout": "roundtrip\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

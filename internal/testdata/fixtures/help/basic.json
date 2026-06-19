@@ -1,0 +1,8 @@
+{
+  "script": "/bin/help echo",
+  "expected": {
+    "stdout": "echo\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

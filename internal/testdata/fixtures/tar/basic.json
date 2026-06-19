@@ -1,0 +1,12 @@
+{
+  "script": "tar -cf /work/out.tar -C /work a.txt b.txt && tar -tf /work/out.tar",
+  "files": {
+    "/work/a.txt": "AAA\n",
+    "/work/b.txt": "BBB\n"
+  },
+  "expected": {
+    "stdout": "a.txt\nb.txt\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

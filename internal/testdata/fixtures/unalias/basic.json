@@ -1,0 +1,8 @@
+{
+  "script": "/bin/alias ll=ls && /bin/unalias ll && /bin/alias ll",
+  "expected": {
+    "stdout": "",
+    "stderr": "alias: ll: not found\n",
+    "exitCode": 1
+  }
+}

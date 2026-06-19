@@ -1,0 +1,8 @@
+{
+  "script": "cat /proc/self/status",
+  "expected": {
+    "stdout": "Name:\tbash\nPid:\t1\nPPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

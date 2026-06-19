@@ -1,0 +1,8 @@
+{
+  "script": "/bin/getopts ab OPT; echo $?",
+  "expected": {
+    "stdout": "1\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

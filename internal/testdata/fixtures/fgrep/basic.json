@@ -1,0 +1,8 @@
+{
+  "script": "printf 'abc\\na.b\\n' | fgrep .",
+  "expected": {
+    "stdout": "a.b\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "script": "sqlite3 :memory: 'SELECT 1' 2>&1; echo exit=$?",
+  "expected": {
+    "stdout": "sqlite3: sqlite3 not enabled (import github.com/mark3labs/go-bash/sqlite to enable)\nexit=1\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

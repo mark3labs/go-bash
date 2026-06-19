@@ -1,0 +1,8 @@
+{
+  "script": "clear",
+  "expected": {
+    "stdout": "\u001b[H\u001b[2J",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

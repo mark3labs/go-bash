@@ -1,0 +1,8 @@
+{
+  "script": "which true",
+  "expected": {
+    "stdout": "/bin/true\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

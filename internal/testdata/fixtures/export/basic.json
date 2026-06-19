@@ -1,0 +1,8 @@
+{
+  "script": "/bin/export FOO=bar && echo ok",
+  "expected": {
+    "stdout": "ok\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

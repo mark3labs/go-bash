@@ -1,0 +1,8 @@
+{
+  "script": "printf 'a\\nb\\nc\\n' | wc -l",
+  "expected": {
+    "stdout": "      3\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

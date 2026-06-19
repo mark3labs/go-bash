@@ -1,0 +1,8 @@
+{
+  "script": "printf 'hello' | sha1sum",
+  "expected": {
+    "stdout": "aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d  -\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

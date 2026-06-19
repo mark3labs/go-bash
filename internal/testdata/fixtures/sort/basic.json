@@ -1,0 +1,8 @@
+{
+  "script": "printf 'c\\na\\nb\\n' > /tmp/f && sort /tmp/f",
+  "expected": {
+    "stdout": "a\nb\nc\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

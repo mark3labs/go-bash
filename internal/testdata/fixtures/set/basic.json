@@ -1,0 +1,8 @@
+{
+  "script": "/bin/set -e && echo ok",
+  "expected": {
+    "stdout": "ok\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

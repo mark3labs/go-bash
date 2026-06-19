@@ -1,0 +1,8 @@
+{
+  "script": "curl -s https://example.com/hello",
+  "expected": {
+    "stdout": "hello from stub\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

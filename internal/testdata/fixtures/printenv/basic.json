@@ -1,0 +1,8 @@
+{
+  "script": "printenv PATH",
+  "expected": {
+    "stdout": "/usr/bin:/bin\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "script": "printf 'a\\nb\\n' > /tmp/a && printf 'x\\ny\\n' > /tmp/b && paste -d, /tmp/a /tmp/b",
+  "expected": {
+    "stdout": "a,x\nb,y\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

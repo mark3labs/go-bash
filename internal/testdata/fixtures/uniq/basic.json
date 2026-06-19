@@ -1,0 +1,8 @@
+{
+  "script": "printf 'a\\na\\nb\\n' > /tmp/f && uniq /tmp/f",
+  "expected": {
+    "stdout": "a\nb\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

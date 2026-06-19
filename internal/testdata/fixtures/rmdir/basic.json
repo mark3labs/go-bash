@@ -1,0 +1,8 @@
+{
+  "script": "mkdir /a; rmdir /a && echo gone",
+  "expected": {
+    "stdout": "gone\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

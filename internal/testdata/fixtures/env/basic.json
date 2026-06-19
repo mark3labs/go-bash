@@ -1,0 +1,8 @@
+{
+  "script": "env -i FOO=bar BAZ=qux",
+  "expected": {
+    "stdout": "BAZ=qux\nFOO=bar\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

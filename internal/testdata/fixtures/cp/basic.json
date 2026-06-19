@@ -1,0 +1,8 @@
+{
+  "script": "echo hi > /tmp/a; cp /tmp/a /tmp/b; ls /tmp",
+  "expected": {
+    "stdout": "a  b\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

@@ -1,0 +1,48 @@
+name: Documentation Issue
+description: Report missing, incorrect, or unclear documentation
+title: "docs: "
+labels: ["documentation"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Documentation Issue
+      description: What's wrong or missing in the documentation?
+      placeholder: |
+        The README lists `--python` and `--javascript` CLI flags but doesn't
+        clarify that they are accepted for just-bash compat and are no-ops
+        until the optional runtime subpackages land (Phases 15/16). A user
+        running `gobash --javascript -c 'js-exec ...'` will hit "command not
+        found" with no signal that the flag itself is a stub.
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: Documentation Location
+      description: Where is the affected documentation?
+      placeholder: e.g., README.md (CLI Options table), AGENTS.md (Optional capabilities), THREAT_MODEL.md §4.4, godoc on `BashOptions.JavaScript`
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested Improvement
+      description: How should the documentation be improved?
+      placeholder: |
+        Add a one-line clarifier next to `--python` / `--javascript` in the
+        README's CLI table, e.g.:
+
+        > Accepted for `just-bash` compat. Currently a no-op — the optional
+        > `pythonexec` / `jsexec` runtimes are not built into the default CLI
+        > binary (see Phase 15/16 in SPEC.md).
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      options:
+        - label: I've checked that this documentation issue still exists in the latest version
+          required: true
+        - label: I've checked the godoc surface (`go doc github.com/mark3labs/go-bash`) and the relevant package-level doc comments before filing
+          required: false

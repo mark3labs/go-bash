@@ -1,0 +1,8 @@
+{
+  "script": "touch /tmp/x; rm /tmp/x && echo ok",
+  "expected": {
+    "stdout": "ok\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

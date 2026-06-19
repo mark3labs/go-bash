@@ -1,0 +1,8 @@
+{
+  "script": "/bin/test a = a && echo eq",
+  "expected": {
+    "stdout": "eq\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

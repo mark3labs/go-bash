@@ -1,0 +1,8 @@
+{
+  "script": "/bin/echo -n nope",
+  "expected": {
+    "stdout": "nope",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

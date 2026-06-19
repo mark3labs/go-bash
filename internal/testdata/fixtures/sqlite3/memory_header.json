@@ -1,0 +1,8 @@
+{
+  "script": "sqlite3 -header :memory: \"SELECT 1 AS id, 'alice' AS name UNION ALL SELECT 2, 'bob'\"",
+  "expected": {
+    "stdout": "id|name\n1|alice\n2|bob\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

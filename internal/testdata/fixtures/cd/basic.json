@@ -1,0 +1,9 @@
+{
+  "script": "/bin/cd /tmp && echo ok",
+  "files": {"/tmp/.keep": ""},
+  "expected": {
+    "stdout": "ok\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

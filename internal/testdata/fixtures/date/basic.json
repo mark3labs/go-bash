@@ -1,0 +1,8 @@
+{
+  "script": "date -u -d @1700000000 +%Y-%m-%d",
+  "expected": {
+    "stdout": "2023-11-14\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

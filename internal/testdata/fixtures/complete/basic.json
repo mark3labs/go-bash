@@ -1,0 +1,8 @@
+{
+  "script": "/bin/complete && echo ok",
+  "expected": {
+    "stdout": "ok\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

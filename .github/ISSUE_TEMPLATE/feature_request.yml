@@ -1,0 +1,82 @@
+name: Feature Request
+description: Suggest a new feature or enhancement for go-bash
+title: "feat: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Feature Description
+      description: What would you like to see added or changed?
+      placeholder: |
+        I'd like a `BashOptions.MaxOutputBytesPerCommand` knob that caps the
+        per-command stdout/stderr separately from the existing combined
+        `MaxOutputSize`, so a single misbehaving builtin can't burn the whole
+        Exec budget.
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation / Use Case
+      description: Why is this feature needed? What problem does it solve?
+      placeholder: |
+        In an agent loop I cap MaxOutputSize at 1 MiB to keep tool replies
+        sane, but a single `find /` then dominates the budget and starves
+        subsequent commands in the same Exec. A per-command cap would let
+        me reject the offender without losing the rest of the pipeline.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed Implementation
+      description: How do you think this should work? (optional)
+      placeholder: |
+        Add a per-command Tracker wrapper around the existing
+        `ringbuf.LimitedWriter`:
+
+        ```go
+        type ExecutionLimits struct {
+            // ...
+            MaxOutputSize             *int
+            MaxOutputBytesPerCommand  *int  // NEW: 0 = use MaxOutputSize
+        }
+        ```
+
+        Tripping the per-command cap would return an
+        `*ExecutionLimitError{Limit: "MaxOutputBytesPerCommand"}` and exit
+        the offending command with a non-zero status, letting the parent
+        pipeline continue.
+      render: go
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope check
+      description: Does this fit go-bash's scope (sandboxed in-process bash for AI agents)? Or is it better suited for a downstream wrapper?
+      placeholder: |
+        Fits the scope — execution limits are a first-class concern (SPEC §2),
+        and this is a strict refinement of the existing MaxOutputSize knob.
+
+  - type: checkboxes
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      options:
+        - label: I've considered solving this in a host-side wrapper (custom commands, transform plugins, etc.) and explained above why an in-runtime knob is better
+          required: false
+        - label: I've considered whether real bash has equivalent behavior and noted the answer
+          required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      options:
+        - label: I've searched existing issues and this hasn't been requested yet
+          required: true
+        - label: This feature aligns with go-bash's scope (a sandboxed in-process bash interpreter for AI agents — see SPEC.md for what's in/out of scope)
+          required: false

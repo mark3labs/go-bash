@@ -1,0 +1,8 @@
+{
+  "script": "whoami",
+  "expected": {
+    "stdout": "user\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

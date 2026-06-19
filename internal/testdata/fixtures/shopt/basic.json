@@ -1,0 +1,8 @@
+{
+  "script": "/bin/shopt -s expand_aliases && /bin/shopt -q expand_aliases && echo ok",
+  "expected": {
+    "stdout": "ok\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

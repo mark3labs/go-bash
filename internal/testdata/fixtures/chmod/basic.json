@@ -1,0 +1,8 @@
+{
+  "script": "touch /tmp/a; chmod 700 /tmp/a && stat -c %a /tmp/a",
+  "expected": {
+    "stdout": "700\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

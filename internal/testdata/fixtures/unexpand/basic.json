@@ -1,0 +1,8 @@
+{
+  "script": "printf '        x\\n' > /tmp/f && unexpand /tmp/f",
+  "expected": {
+    "stdout": "\tx\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

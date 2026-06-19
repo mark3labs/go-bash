@@ -1,0 +1,8 @@
+{
+  "script": "seq 1 3",
+  "expected": {
+    "stdout": "1\n2\n3\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "script": "printf 'hello world\\n' | gzip -c | gunzip -c",
+  "expected": {
+    "stdout": "hello world\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

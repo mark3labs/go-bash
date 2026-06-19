@@ -1,0 +1,8 @@
+{
+  "script": "dirname /usr/local/bin/foo",
+  "expected": {
+    "stdout": "/usr/local/bin\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

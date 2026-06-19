@@ -1,0 +1,8 @@
+{
+  "script": "printf 'a\\nb\\n' > /tmp/a && printf 'b\\nc\\n' > /tmp/b && comm -12 /tmp/a /tmp/b",
+  "expected": {
+    "stdout": "b\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

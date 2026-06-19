@@ -1,0 +1,8 @@
+{
+  "script": "printf 'a\\nb\\n' | nl",
+  "expected": {
+    "stdout": "     1\ta\n     2\tb\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

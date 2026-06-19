@@ -1,0 +1,8 @@
+{
+  "script": "echo abc | tr a-z A-Z",
+  "expected": {
+    "stdout": "ABC\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

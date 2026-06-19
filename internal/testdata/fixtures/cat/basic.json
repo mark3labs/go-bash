@@ -1,0 +1,8 @@
+{
+  "script": "echo 'hello world' > /tmp/a && cat /tmp/a",
+  "expected": {
+    "stdout": "hello world\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

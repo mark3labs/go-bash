@@ -1,0 +1,8 @@
+{
+  "script": "sh -c 'echo from-sub-sh'",
+  "expected": {
+    "stdout": "from-sub-sh\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

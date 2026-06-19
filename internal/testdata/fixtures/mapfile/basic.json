@@ -1,0 +1,8 @@
+{
+  "script": "printf 'a\\nb\\n' | /bin/mapfile -t ARR && echo ok",
+  "expected": {
+    "stdout": "ok\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

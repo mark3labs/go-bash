@@ -1,0 +1,8 @@
+{
+  "script": "/bin/compopt && echo ok",
+  "expected": {
+    "stdout": "ok\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "script": "printf 'hello' | base64",
+  "expected": {
+    "stdout": "aGVsbG8=\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

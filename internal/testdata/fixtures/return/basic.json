@@ -1,0 +1,8 @@
+{
+  "script": "/bin/return 3",
+  "expected": {
+    "stdout": "",
+    "stderr": "",
+    "exitCode": 3
+  }
+}

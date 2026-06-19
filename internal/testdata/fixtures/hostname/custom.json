@@ -1,0 +1,11 @@
+{
+  "script": "hostname",
+  "files": {
+    "/etc/hostname": "box-42\n"
+  },
+  "expected": {
+    "stdout": "box-42\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

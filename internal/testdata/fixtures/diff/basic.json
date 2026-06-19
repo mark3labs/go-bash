@@ -1,0 +1,8 @@
+{
+  "script": "echo hello > /tmp/a && echo hello > /tmp/b && diff /tmp/a /tmp/b",
+  "expected": {
+    "stdout": "",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

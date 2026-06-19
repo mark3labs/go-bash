@@ -1,0 +1,8 @@
+{
+  "script": "printf 'a\\nb\\nc\\n' > /tmp/in; split -l 1 /tmp/in /tmp/p; ls /tmp",
+  "expected": {
+    "stdout": "in  paa  pab  pac\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

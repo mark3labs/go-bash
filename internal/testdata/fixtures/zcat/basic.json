@@ -1,0 +1,8 @@
+{
+  "script": "printf 'zcat ok\\n' | gzip -c | zcat",
+  "expected": {
+    "stdout": "zcat ok\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

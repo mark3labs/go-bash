@@ -1,0 +1,8 @@
+{
+  "script": "basename /usr/lib/libfoo.so .so",
+  "expected": {
+    "stdout": "libfoo\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

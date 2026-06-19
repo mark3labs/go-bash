@@ -1,0 +1,8 @@
+{
+  "script": "expr 6 \\* 7",
+  "expected": {
+    "stdout": "42\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

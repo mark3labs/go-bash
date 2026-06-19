@@ -1,0 +1,8 @@
+{
+  "script": "echo hi > /tmp/a; file /tmp/a",
+  "expected": {
+    "stdout": "/tmp/a: ASCII text\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

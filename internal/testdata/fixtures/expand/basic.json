@@ -1,0 +1,8 @@
+{
+  "script": "printf 'a\\tb\\n' | expand -t 4",
+  "expected": {
+    "stdout": "a   b\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

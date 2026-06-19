@@ -1,0 +1,8 @@
+{
+  "script": "mkdir -p /r/a; touch /r/a/x; tree -L 1 /r",
+  "expected": {
+    "stdout": "/r\n└── a\n\n1 directories, 0 files\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

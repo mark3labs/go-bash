@@ -1,0 +1,8 @@
+{
+  "script": "/bin/pushd /",
+  "expected": {
+    "stdout": "/\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

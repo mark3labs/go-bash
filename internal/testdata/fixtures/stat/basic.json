@@ -1,0 +1,8 @@
+{
+  "script": "echo hi > /tmp/a; stat -c %s /tmp/a",
+  "expected": {
+    "stdout": "3\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

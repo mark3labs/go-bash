@@ -1,0 +1,8 @@
+{
+  "script": "echo hi | /bin/read && echo ok",
+  "expected": {
+    "stdout": "ok\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

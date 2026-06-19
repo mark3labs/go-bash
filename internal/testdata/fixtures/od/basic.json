@@ -1,0 +1,8 @@
+{
+  "script": "printf 'AB' | od -A x -t x1",
+  "expected": {
+    "stdout": "0000000 41 42\n0000002\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

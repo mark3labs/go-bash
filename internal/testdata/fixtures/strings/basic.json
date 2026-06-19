@@ -1,0 +1,8 @@
+{
+  "script": "printf 'abcd\\x00\\x01XYZW\\x00' > /tmp/b && strings -n 4 /tmp/b",
+  "expected": {
+    "stdout": "abcd\nXYZW\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

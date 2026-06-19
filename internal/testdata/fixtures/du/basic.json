@@ -1,0 +1,8 @@
+{
+  "script": "mkdir -p /d; echo hi > /d/a; du -s -b /d",
+  "expected": {
+    "stdout": "3\t/d\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "script": "echo abcdef | fold -w 2",
+  "expected": {
+    "stdout": "ab\ncd\nef\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

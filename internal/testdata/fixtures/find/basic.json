@@ -1,0 +1,8 @@
+{
+  "script": "mkdir -p /tmp/d && touch /tmp/d/a.txt /tmp/d/b.log && find /tmp/d -name '*.txt'",
+  "expected": {
+    "stdout": "/tmp/d/a.txt\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

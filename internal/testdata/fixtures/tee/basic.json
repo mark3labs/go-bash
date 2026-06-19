@@ -1,0 +1,8 @@
+{
+  "script": "echo hi | tee /tmp/out && cat /tmp/out",
+  "expected": {
+    "stdout": "hi\nhi\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "script": "/bin/alias ll='ls -l' && /bin/alias ll",
+  "expected": {
+    "stdout": "alias ll='ls -l'\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

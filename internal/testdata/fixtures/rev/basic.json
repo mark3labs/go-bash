@@ -1,0 +1,8 @@
+{
+  "script": "echo hello | rev",
+  "expected": {
+    "stdout": "olleh\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

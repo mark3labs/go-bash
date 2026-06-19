@@ -1,0 +1,8 @@
+{
+  "script": "printf 'foo\\nbar\\nbaz\\n' | egrep 'ba(r|z)'",
+  "expected": {
+    "stdout": "bar\nbaz\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "script": "printf '1 2\\n3 4\\n' | awk '{ print $2 }'",
+  "expected": {
+    "stdout": "2\n4\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

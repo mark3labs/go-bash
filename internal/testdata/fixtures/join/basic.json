@@ -1,0 +1,8 @@
+{
+  "script": "printf '1 alice\\n2 bob\\n' > /tmp/a && printf '1 red\\n2 blue\\n' > /tmp/b && join /tmp/a /tmp/b",
+  "expected": {
+    "stdout": "1 alice red\n2 bob blue\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

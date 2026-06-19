@@ -1,0 +1,8 @@
+{
+  "script": "/bin/unset X && echo ok",
+  "expected": {
+    "stdout": "ok\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

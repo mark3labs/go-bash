@@ -1,0 +1,8 @@
+{
+  "script": "mkdir /a; mkdir -p /b/c/d; ls /",
+  "expected": {
+    "stdout": "a  b  bin  dev  etc  home  proc  tmp  usr\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

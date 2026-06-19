@@ -1,0 +1,8 @@
+{
+  "script": "printf 'foo\\nbar\\n' | sed 's/foo/baz/'",
+  "expected": {
+    "stdout": "baz\nbar\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

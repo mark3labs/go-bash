@@ -1,0 +1,8 @@
+{
+  "script": "touch /tmp/a; mv /tmp/a /tmp/b; ls /tmp",
+  "expected": {
+    "stdout": "b\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

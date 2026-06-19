@@ -1,0 +1,20 @@
+blank_issues_enabled: false
+contact_links:
+  - name: go-bash README
+    url: https://github.com/mark3labs/go-bash#readme
+    about: Quick start, FS modes, network config, CLI usage, security model
+  - name: go-bash for AI agents
+    url: https://github.com/mark3labs/go-bash/blob/master/AGENTS.md
+    about: How to wire go-bash into a tool-call loop, what the model can/can't do, common failure modes
+  - name: Threat model
+    url: https://github.com/mark3labs/go-bash/blob/master/THREAT_MODEL.md
+    about: Full threat model — attack surface, defenses, residual risks, and "what Go gives us for free"
+  - name: Build spec
+    url: https://github.com/mark3labs/go-bash/blob/master/SPEC.md
+    about: The phase-by-phase build specification (what go-bash supports and what it deliberately doesn't)
+  - name: Decisions log
+    url: https://github.com/mark3labs/go-bash/blob/master/DECISIONS.md
+    about: Documented divergences from real bash and just-bash — check here before reporting a behavior gap
+  - name: Discussions
+    url: https://github.com/mark3labs/go-bash/discussions
+    about: For questions, ideas, or general discussion

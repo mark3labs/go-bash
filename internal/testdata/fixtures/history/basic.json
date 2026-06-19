@@ -1,0 +1,8 @@
+{
+  "script": "/bin/history -s 'echo hi' && /bin/history -s 'echo bye' && /bin/history",
+  "expected": {
+    "stdout": "    1  echo hi\n    2  echo bye\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "script": "printf 'foo\\nbar\\nfoobar\\n' | grep foo",
+  "expected": {
+    "stdout": "foo\nfoobar\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "script": "sqlite3 -csv -header :memory: \"SELECT 1 AS a, 'has,comma' AS b\"",
+  "expected": {
+    "stdout": "a,b\r\n1,\"has,comma\"\r\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

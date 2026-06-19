@@ -1,0 +1,8 @@
+{
+  "script": "echo '<h1>Hi</h1><p>hello</p>' | html-to-markdown",
+  "expected": {
+    "stdout": "# Hi\n\nhello",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

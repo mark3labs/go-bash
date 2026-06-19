@@ -1,0 +1,8 @@
+{
+  "script": "hostname",
+  "expected": {
+    "stdout": "localhost\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "script": "/bin/printf '%s\\n' a b c",
+  "expected": {
+    "stdout": "a\nb\nc\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

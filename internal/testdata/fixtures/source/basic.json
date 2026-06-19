@@ -1,0 +1,9 @@
+{
+  "script": "/bin/source /s.sh",
+  "files": {"/s.sh": "echo from-sourced"},
+  "expected": {
+    "stdout": "from-sourced\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

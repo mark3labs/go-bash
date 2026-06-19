@@ -1,0 +1,8 @@
+{
+  "script": "/bin/popd; echo $?",
+  "expected": {
+    "stdout": "1\n",
+    "stderr": "popd: directory stack empty\n",
+    "exitCode": 0
+  }
+}

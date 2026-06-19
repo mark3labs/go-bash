@@ -1,0 +1,8 @@
+{
+  "script": "sqlite3 -json :memory: \"SELECT 1 AS a, 'two' AS b\"",
+  "expected": {
+    "stdout": "[{\"a\":1,\"b\":\"two\"}]\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

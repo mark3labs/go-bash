@@ -1,0 +1,8 @@
+{
+  "script": "/bin/time /bin/echo timed 2>/dev/null",
+  "expected": {
+    "stdout": "timed\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

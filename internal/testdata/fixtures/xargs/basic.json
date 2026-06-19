@@ -1,0 +1,8 @@
+{
+  "script": "printf 'a b c' | xargs echo",
+  "expected": {
+    "stdout": "a b c\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

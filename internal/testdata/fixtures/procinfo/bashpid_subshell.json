@@ -1,0 +1,8 @@
+{
+  "script": "echo $BASHPID; (echo $BASHPID); (echo $BASHPID); echo $BASHPID",
+  "expected": {
+    "stdout": "1\n2\n3\n1\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

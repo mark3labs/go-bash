@@ -1,0 +1,8 @@
+{
+  "script": "echo $PPID",
+  "expected": {
+    "stdout": "0\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

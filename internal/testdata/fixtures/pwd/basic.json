@@ -1,0 +1,8 @@
+{
+  "script": "cd /tmp && /bin/pwd",
+  "expected": {
+    "stdout": "/tmp\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

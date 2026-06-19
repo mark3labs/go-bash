@@ -1,0 +1,8 @@
+{
+  "script": "printf 'a\\nb\\nc\\n' > /tmp/f && tac /tmp/f",
+  "expected": {
+    "stdout": "c\nb\na\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

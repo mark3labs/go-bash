@@ -1,0 +1,8 @@
+{
+  "script": "printf 'a: 1\\nb: two\\n' | yq -o json -c .",
+  "expected": {
+    "stdout": "{\"a\":1,\"b\":\"two\"}\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

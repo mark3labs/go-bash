@@ -1,0 +1,8 @@
+{
+  "script": "sqlite3 -line :memory: \"SELECT 1 AS a, 'two' AS bb\"",
+  "expected": {
+    "stdout": " a = 1\nbb = two\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "script": "/bin/declare X=1 && echo ok",
+  "expected": {
+    "stdout": "ok\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

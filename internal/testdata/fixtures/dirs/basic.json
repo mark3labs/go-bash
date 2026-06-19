@@ -1,0 +1,8 @@
+{
+  "script": "/bin/dirs",
+  "expected": {
+    "stdout": "/home/user\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

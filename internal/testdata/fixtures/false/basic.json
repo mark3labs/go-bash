@@ -1,0 +1,8 @@
+{
+  "script": "/bin/false || echo failed",
+  "expected": {
+    "stdout": "failed\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

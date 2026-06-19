@@ -1,0 +1,8 @@
+{
+  "script": "printf '{\"a\":1,\"b\":2}' | jq -c '.a'",
+  "expected": {
+    "stdout": "1\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

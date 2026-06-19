@@ -1,0 +1,8 @@
+{
+  "script": "/bin/umask",
+  "expected": {
+    "stdout": "0022\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

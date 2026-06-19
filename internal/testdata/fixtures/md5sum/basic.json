@@ -1,0 +1,8 @@
+{
+  "script": "printf 'hello' | md5sum",
+  "expected": {
+    "stdout": "5d41402abc4b2a76b9719d911017c592  -\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

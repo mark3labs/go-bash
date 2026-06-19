@@ -1,0 +1,8 @@
+{
+  "script": "sqlite3 :memory: \"CREATE TABLE t(id INTEGER, name TEXT); INSERT INTO t VALUES (1,'alice'),(2,'bob'); SELECT * FROM t ORDER BY id\"",
+  "expected": {
+    "stdout": "1|alice\n2|bob\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

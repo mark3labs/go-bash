@@ -1,0 +1,8 @@
+{
+  "script": "printf 'a\\nb\\nc\\nd\\ne\\n' > /tmp/f && tail -n 2 /tmp/f",
+  "expected": {
+    "stdout": "d\ne\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}

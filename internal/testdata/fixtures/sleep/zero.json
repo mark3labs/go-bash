@@ -1,0 +1,8 @@
+{
+  "script": "sleep 0 && echo done",
+  "expected": {
+    "stdout": "done\n",
+    "stderr": "",
+    "exitCode": 0
+  }
+}
