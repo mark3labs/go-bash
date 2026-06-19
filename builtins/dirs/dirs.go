@@ -1,4 +1,4 @@
-// Package dirs implements the `dirs` shell built-in (SPEC §11).
+// Package dirs implements the `dirs` shell built-in.
 // Prints the current dir (we have no persistent dir stack across
 // dispatches; the registered version is a single-entry approximation).
 // mvdan/sh ships its own; reachable via /bin/dirs.

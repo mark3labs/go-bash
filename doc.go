@@ -4,7 +4,7 @@
 // gobash is a feature-for-feature Go port of the just-bash TypeScript
 // interpreter (github.com/vercel-labs/just-bash). The public surface, the
 // phase-by-phase build plan, and the resolved design decisions live in
-// SPEC.md at the repository root.
+// The spec at the repository root.
 //
 // # Phase 1 status
 //

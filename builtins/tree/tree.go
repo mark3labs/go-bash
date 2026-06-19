@@ -1,4 +1,4 @@
-// Package tree implements the `tree` built-in (SPEC §10 Wave B).
+// Package tree implements the `tree` built-in.
 //
 // Flags: -L LEVEL, -d (dirs only), -a (all), -J (JSON), -C (colors).
 package tree

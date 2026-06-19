@@ -1,4 +1,4 @@
-// Package sha256sum implements the `sha256sum` built-in (SPEC §10 Wave C).
+// Package sha256sum implements the `sha256sum` built-in.
 package sha256sum
 
 import (

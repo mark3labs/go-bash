@@ -1,4 +1,4 @@
-// Package sort implements the `sort` built-in (SPEC §10 Wave C).
+// Package sort implements the `sort` built-in.
 //
 // Flags: -n numeric, -r reverse, -u unique, -k FIELD, -t SEP, -f
 // fold-case, -V version, -h human-suffix-aware, -s stable, -c check,

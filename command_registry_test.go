@@ -10,7 +10,7 @@ import (
 )
 
 // TestPhase8RegistryExposed asserts that New surfaces a non-nil
-// *command.Registry via the public Registry() accessor (SPEC §8.2).
+// *command.Registry via the public Registry() accessor.
 func TestPhase8RegistryExposed(t *testing.T) {
 	b, err := gobash.New(gobash.BashOptions{})
 	if err != nil {
@@ -22,7 +22,7 @@ func TestPhase8RegistryExposed(t *testing.T) {
 }
 
 // TestPhase8CustomCommandRegistered asserts BashOptions.CustomCommands
-// land in the registry (SPEC §1.2 / §8.2).
+// land in the registry (§8.2).
 func TestPhase8CustomCommandRegistered(t *testing.T) {
 	cmd := command.Define("hello", func(_ context.Context, _ []string, _ *command.Context) command.Result {
 		return command.Result{Stdout: "hello\n"}
@@ -45,7 +45,7 @@ func TestPhase8CustomCommandRegistered(t *testing.T) {
 // TestPhase8CustomCommandDispatches is the dispatch-success path:
 // a script calling a registered command must reach Execute and the
 // command's stdout must reach the script's stdout via the ExecHandler
-// middleware (SPEC §5.3, §8).
+// middleware.
 func TestPhase8CustomCommandDispatches(t *testing.T) {
 	called := false
 	cmd := command.Define("probe", func(_ context.Context, args []string, c *command.Context) command.Result {
@@ -126,7 +126,7 @@ func TestPhase8CustomCommandExitCode(t *testing.T) {
 }
 
 // TestPhase8UnknownCommandIsNotFound is the SANDBOX REGRESSION test
-// for SPEC §8: an unregistered command must NOT reach host os/exec
+// for the spec: an unregistered command must NOT reach host os/exec
 // and MUST surface as `<name>: command not found\n` on stderr plus
 // ExitCode 127. The Phase 5–7 behavior (pass-through to mvdan/sh's
 // DefaultExecHandler, which would host-exec) is what this test
@@ -158,7 +158,7 @@ func TestPhase8UnknownCommandIsNotFound(t *testing.T) {
 	}
 }
 
-// TestPhase8CustomCommandOverridesBuiltinName mirrors SPEC §1.2's
+// TestPhase8CustomCommandOverridesBuiltinName mirrors the spec's
 // "CustomCommands override built-ins". Phase 10 will land real
 // built-ins; today we simulate by registering the same name twice
 // (a Phase 10 built-in plus a CustomCommand) via two BashOptions
@@ -186,7 +186,7 @@ func TestPhase8CustomCommandOverridesBuiltinName(t *testing.T) {
 	}
 }
 
-// TestPhase8BinStubsMaterialized covers the SPEC §7 ↔ §8 hand-off:
+// TestPhase8BinStubsMaterialized covers the spec ↔ §8 hand-off:
 // every name in the registry produces a /bin/<name> stub file with
 // mode 0o755 after New(BashOptions{}).
 func TestPhase8BinStubsMaterialized(t *testing.T) {
@@ -221,8 +221,8 @@ func TestPhase8BinStubsMaterialized(t *testing.T) {
 
 // TestPhase8AbsoluteBinPathDispatches asserts a script invoking a
 // command via its absolute /bin/<name> path routes through the
-// registry — NOT through the sentinel binStubBody contents. SPEC §7
-// guarantees the stub presence; SPEC §8 guarantees the dispatch
+// registry — NOT through the sentinel binStubBody contents. The spec
+// guarantees the stub presence guarantees the dispatch
 // hits the real command implementation.
 func TestPhase8AbsoluteBinPathDispatches(t *testing.T) {
 	cmd := command.Define("shout", func(_ context.Context, _ []string, c *command.Context) command.Result {

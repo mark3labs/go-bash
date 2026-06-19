@@ -1,4 +1,4 @@
-// Package unexpand implements the `unexpand` built-in (SPEC §10 Wave C).
+// Package unexpand implements the `unexpand` built-in.
 //
 // Flags: -a convert all blanks (default: only leading); -t LIST tab stops.
 package unexpand

@@ -5,12 +5,12 @@
 // instance produces the expected output byte-for-byte.
 //
 // The fixture format is a near-direct port of just-bash's
-// src/comparison-tests/ shape (SPEC §19.1). Future enhancements
+// src/comparison-tests/ shape. Future enhancements
 // (Phase 19) will add the RECORD_FIXTURES re-recording path and the
 // locked-fixture skip logic; for Phase 10 we only need the read-side
 // loader so Wave A built-ins can ship with at least one fixture each.
 //
-// Cited surface: SPEC §19.1, §19.2.
+// Cited surface: the spec, §19.2.
 package cmpfixture
 
 import (
@@ -28,7 +28,7 @@ import (
 
 // Fixture is the on-disk shape of a comparison-test JSON file. Field
 // names match the just-bash format (`script`, `files`, `env`, `cwd`,
-// `locked`, `expected`) so a future bulk-import script (SPEC §19.4)
+// `locked`, `expected`) so a future bulk-import script
 // can copy files in without rewriting keys.
 type Fixture struct {
 	// Script is the bash source the fixture exercises. Required.

@@ -36,7 +36,7 @@ import (
 // commandExecHandler middleware, and the runner.Dir-not-interp.Dir
 // quirk out of bash.go and into the bridge package. Bash.Exec still
 // owns: per-call limit state (CallHandler closure + MaxOutputSize
-// ringbuf), env-mutation propagation across Exec calls (SPEC §5.6), the
+// ringbuf), env-mutation propagation across Exec calls, the
 // loop-sentinel AST rewrite, and the final result shape.
 //
 // Still missing (per build order): command registry (Phase 8),
@@ -66,7 +66,7 @@ type Bash struct {
 	// interp.ExecHandlers middleware. Phase 8 plumbs it in;
 	// CustomCommands land first (so they win over later built-in
 	// registrations), Phase 10 will register filtered built-ins on
-	// top. The registry is also the source of truth for the SPEC §7
+	// top. The registry is also the source of truth for the spec
 	// /bin/X stub list.
 	registry *command.Registry
 
@@ -110,7 +110,7 @@ type Bash struct {
 
 	// funcs/exported (Phase 5), jsBoot/invoke (Phase 15) are added
 	// when their owning phase lands. The full target field set is
-	// frozen in SPEC.md §1.2.
+	// frozen in the spec
 }
 
 // loopSentinelName is the literal command we inject at the start of every
@@ -164,7 +164,7 @@ func New(opts BashOptions) (*Bash, error) {
 	// in favor of the custom entry — the built-in bootstrap will skip
 	// names already present via Registry.Has. The BashOptions.Commands
 	// filter applies only to the built-in registration loop; custom
-	// entries are never filtered (SPEC §1.2 "override built-ins").
+	// entries are never filtered.
 	b.registry = command.NewRegistry()
 	for _, c := range opts.CustomCommands {
 		b.registry.Register(c)
@@ -193,7 +193,7 @@ func New(opts BashOptions) (*Bash, error) {
 		b.registry.Register(c)
 	}
 
-	// Network Doer resolution (SPEC §9). BashOptions.Fetch is the
+	// Network Doer resolution. BashOptions.Fetch is the
 	// strict override — when supplied, BashOptions.Network is
 	// ignored even if non-nil. When Fetch is nil and Network is
 	// non-nil we materialize a SecureFetch from the config. When
@@ -206,7 +206,7 @@ func New(opts BashOptions) (*Bash, error) {
 		b.fetch = network.NewSecureFetch(opts.Network)
 	}
 
-	// SPEC §7 default filesystem layout. Only applied when the caller
+	// The spec default filesystem layout. Only applied when the caller
 	// supplied neither Cwd nor Files — either signal is read as
 	// "I'm managing my own filesystem layout, don't preload anything."
 	// FS supplied alone is fine: the layout is written onto whatever
@@ -228,7 +228,7 @@ func New(opts BashOptions) (*Bash, error) {
 		}
 	}
 	// Default Cwd: "/home/user" if neither Cwd nor Files was set; "/"
-	// otherwise. Matches SPEC §1.2.
+	// otherwise. Matches the spec
 	if b.cwd == "" {
 		if len(opts.Files) == 0 {
 			b.cwd = "/home/user"
@@ -277,7 +277,7 @@ func (b *Bash) Shopt() command.ShoptTable { return b.shopt }
 
 // RegisterTransformPlugin appends a transform-pipeline plugin to the
 // per-Bash plugin slice. The plugin runs on every subsequent Exec call
-// (parse → plugins → serialize → re-parse → run; SPEC §13.4) and
+// (parse → plugins → serialize → re-parse → run) and
 // its metadata payload is surfaced in BashExecResult.Metadata under
 // the plugin's Name().
 //
@@ -352,11 +352,11 @@ func seedFiles(target gbfs.FileSystem, files map[string]gbfs.FileInit) error {
 //
 // Concurrent Exec calls on the same *Bash serialize via an internal mutex.
 //
-// Per the resolved decisions in SPEC.md, background jobs (`&`) and `wait`
+// Per the resolved decisions in the spec, background jobs (`&`) and `wait`
 // run synchronously with virtual PIDs; `wait` is a no-op. Function
 // definitions made inside a script live only for that Exec.
 //
-// The following limits from SPEC §2.1 are enforced in this phase:
+// The following limits from the spec are enforced in this phase:
 // MaxCommandCount, MaxLoopIterations, MaxCallDepth, MaxOutputSize. The
 // remaining limits land in their owning phases (Phase 4 for expansion
 // caps, Phase 11 for source-depth via the source/. builtin, etc.).
@@ -378,7 +378,7 @@ func (b *Bash) execLocked(ctx context.Context, script string, opts ExecOptions) 
 
 	var result BashExecResult
 
-	// SPEC §13.4: when transform plugins are registered, run the
+	// The spec: when transform plugins are registered, run the
 	// pipeline first. The pipeline parses, dispatches each plugin in
 	// order, and re-serializes the post-transform AST. We then drop
 	// the original script in favor of the transformed source and
@@ -421,13 +421,13 @@ func (b *Bash) execLocked(ctx context.Context, script string, opts ExecOptions) 
 	// the loop-iteration counter and rewrite the args to `:` (no-op).
 	instrumentLoops(file)
 
-	// SPEC §12: rewrite $$, $PPID, $BASHPID to the virtualized values
+	// The spec: rewrite $$, $PPID, $BASHPID to the virtualized values
 	// from procInfo. mvdan/sh hardcodes $$/$PPID to the host process's
 	// real os.Getpid()/os.Getppid() — see procinfo.go for the full
 	// rationale and the per-subshell BASHPID counter rules.
 	rewriteProcInfo(file, b.procInfo.PID, b.procInfo.PPID)
 
-	// SPEC §6 expansion-side runtime caps: bound brace expansion,
+	// The spec expansion-side runtime caps: bound brace expansion,
 	// substitution depth, and literal array element counts before any
 	// runtime allocation can balloon. enforceExpansionCaps splits
 	// braces in-place, so subsequent runtime expansion is unaffected.
@@ -468,7 +468,7 @@ func (b *Bash) execLocked(ctx context.Context, script string, opts ExecOptions) 
 	}
 
 	// MaxOutputSize: a single Tracker shared by both writers so the cap
-	// is the combined stdout+stderr budget (SPEC §2.3).
+	// is the combined stdout+stderr budget.
 	outTracker := ringbuf.NewTracker(int64(b.limits.MaxOutputSize), func(limit int64) error {
 		return trip(&ExecutionLimitError{Limit: "MaxOutputSize", Value: int(limit)})
 	})
@@ -508,7 +508,7 @@ func (b *Bash) execLocked(ctx context.Context, script string, opts ExecOptions) 
 			}
 			return []string{":"}, nil
 		}
-		// SPEC §6 MaxStringLength: cap the size of any single argument
+		// The spec MaxStringLength: cap the size of any single argument
 		// reaching a command. mvdan/sh produces these via the full
 		// expansion pipeline (parameter, command sub, brace, glob), so a
 		// CallHandler check is the latest possible hook before a builtin
@@ -532,7 +532,7 @@ func (b *Bash) execLocked(ctx context.Context, script string, opts ExecOptions) 
 		// we count the number of mvdan/sh interp.(*Runner).call frames
 		// currently on the goroutine stack. mvdan/sh exposes no
 		// per-function entry/exit callback, so a stack walk is the
-		// cleanest workaround — see handoffs/phase-2.md for details.
+		// cleanest workaround.
 		if runnerRef != nil {
 			if _, isFunc := runnerRef.Funcs[args[0]]; isFunc {
 				if depth := countMvdanCallFrames(); depth > limits.MaxCallDepth {
@@ -603,7 +603,7 @@ func (b *Bash) execLocked(ctx context.Context, script string, opts ExecOptions) 
 		result.Metadata = pluginMetadata
 	}
 
-	// Env mutation propagation (SPEC §5.6): copy the runner's exported
+	// Env mutation propagation: copy the runner's exported
 	// vars back into Bash.env so a subsequent Exec call sees them —
 	// UNLESS the caller supplied a per-call Env without ReplaceEnv, in
 	// which case the per-call overrides were ephemeral and post-Exec
@@ -696,7 +696,7 @@ func newSentinelStmt() *syntax.Stmt {
 // call method for nested function bodies and builtins like source/eval,
 // so this count is an exact lower bound on the shell call depth.
 //
-// This is documented as a workaround in handoffs/phase-2.md and may be
+// This is documented as a workaround and may be
 // revisited if mvdan/sh ever exposes a richer call lifecycle API.
 func countMvdanCallFrames() int {
 	var pcs [128]uintptr
@@ -803,7 +803,7 @@ func exportedEnv(r *interp.Runner) map[string]string {
 	return out
 }
 
-// defaultProcessInfo matches the table fixed in SPEC.md §1.2.
+// defaultProcessInfo matches the table fixed in the spec
 func defaultProcessInfo() ProcessInfo {
 	return ProcessInfo{PID: 1, PPID: 0, UID: 1000, GID: 1000}
 }
@@ -816,8 +816,7 @@ func defaultProcessInfo() ProcessInfo {
 //
 // The translation is straightforward: command.SubExecOptions →
 // gobash.ExecOptions. opts.Args is currently dropped on the floor
-// (SPEC §8.1's SubExecOptions reserves the field; the Wave G consumers
-// don't pass positional args).
+// (/ don't pass positional args).
 func (b *Bash) subExec(ctx context.Context, script string, opts command.SubExecOptions) (command.Result, error) {
 	prevDepth := b.execDepth
 	if opts.SourceDepth > 0 {

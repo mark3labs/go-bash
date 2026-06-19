@@ -1,4 +1,4 @@
-// Package shopt implements the `shopt` shell built-in (SPEC §11).
+// Package shopt implements the `shopt` shell built-in.
 // Reads and writes per-Bash shell options via c.Shopt. mvdan/sh ships
 // its own; this registration is reachable via /bin/shopt and is the
 // canonical surface for toggling `expand_aliases` (which the

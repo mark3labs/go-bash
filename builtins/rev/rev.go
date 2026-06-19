@@ -1,4 +1,4 @@
-// Package rev implements the `rev` built-in (SPEC §10 Wave C).
+// Package rev implements the `rev` built-in.
 package rev
 
 import (

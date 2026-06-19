@@ -10,7 +10,7 @@ import (
 // instead of time.Sleep so tests can elide wall-clock waits without
 // mocking time globally. Returning a non-nil error aborts the sleep
 // and is surfaced to the caller as the command's exit status (per
-// SPEC §10.11). Type alias keeps gobash.SleepFunc structurally
+// The spec). Type alias keeps gobash.SleepFunc structurally
 // compatible with command.SleepFunc.
 type SleepFunc = func(ctx context.Context, d time.Duration) error
 
@@ -25,7 +25,7 @@ type TraceFunc = func(TraceEvent)
 type InvokeToolFunc = func(ctx context.Context, path, argsJSON string) (string, error)
 
 // TraceEvent describes a single instrumentation point produced by the
-// runtime or a built-in. SPEC §1.2 freezes this shape; the gobash
+// runtime or a built-in. The spec freezes this shape; the gobash
 // root package re-exports it via type alias for backward compatibility
 // with Phase 1's surface.
 type TraceEvent struct {
@@ -36,7 +36,7 @@ type TraceEvent struct {
 }
 
 // Limits is the per-Exec resolved limit set commands may inspect at
-// dispatch time. It mirrors SPEC §2.1 verbatim — the gobash root
+// dispatch time. It mirrors the spec verbatim — the gobash root
 // package's ResolvedLimits is a type alias to this struct so the
 // runtime can pass through a single value.
 //

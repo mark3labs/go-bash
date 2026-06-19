@@ -4,9 +4,9 @@
 //
 //   - VFS-backed Open/Stat/ReadDir handlers route every file operation
 //     through the FileSystem on the caller's *Bash instead of the host
-//     disk (SPEC §5.4).
+//     disk.
 //   - An ExecHandlers middleware dispatches every non-mvdan-builtin
-//     command through the gobash command Registry (SPEC §5.3, §8). The
+//     command through the gobash command Registry. The
 //     middleware NEVER falls through to mvdan/sh's DefaultExecHandler;
 //     unregistered commands trigger a `command not found` stderr write
 //     plus ExitStatus(127), closing the os/exec gap that existed in
@@ -102,7 +102,7 @@ type Config struct {
 
 	// Fetch is the resolved network Doer. When nil, command.Context.Fetch
 	// is also nil and network-touching commands must error cleanly.
-	// SPEC §9: the runtime decides whether to supply a SecureFetch or
+	// The spec: the runtime decides whether to supply a SecureFetch or
 	// honor a host-provided override; the dispatch bridge just passes
 	// through whatever the host gave it.
 	Fetch network.Doer
@@ -142,7 +142,7 @@ type Config struct {
 
 	// Exec is the sub-shell invocation hook surfaced to commands via
 	// command.Context.Exec (Phase 10 Wave G `bash` / `sh` /
-	// `timeout`). SPEC §8.1 reserves this for Phase 11; Wave G needs
+	// `timeout`). The spec reserves this for Phase 11; Wave G needs
 	// it earlier.
 	Exec command.SubExecFunc
 
@@ -160,7 +160,7 @@ type Config struct {
 	// Returning a non-nil error fails the ReadDir without consulting
 	// the underlying FS — this is the Phase 6 wire-up point for the
 	// MaxGlobOperations limit (every ReadDir contributes one glob op).
-	// SPEC §6.6 routes pathname expansion through this hook because
+	// The spec routes pathname expansion through this hook because
 	// mvdan/sh does not expose a glob-specific counter.
 	ReadDirHook func(ctx context.Context, path string) error
 }
@@ -187,7 +187,7 @@ func BuildRunner(ctx context.Context, cfg Config) (*mvinterp.Runner, error) {
 	opts := []mvinterp.RunnerOption{
 		mvinterp.StdIO(stdin, cfg.Stdout, cfg.Stderr),
 		mvinterp.Env(expand.ListEnviron(cfg.Env...)),
-		// Registry dispatch (SPEC §5.3, §8): every non-mvdan-builtin
+		// Registry dispatch: every non-mvdan-builtin
 		// command goes through the registry. The chain terminates in
 		// notFoundExecHandler; mvdan/sh's DefaultExecHandler is
 		// NEVER reached, so no os/exec call escapes to the host.
@@ -217,7 +217,7 @@ func BuildRunner(ctx context.Context, cfg Config) (*mvinterp.Runner, error) {
 		return nil, err
 	}
 
-	// SPEC §5.2 / Phase 3 quirk: do NOT use interp.Dir(cwd) — that
+	// The spec / Phase 3 quirk: do NOT use interp.Dir(cwd) — that
 	// runs an os.Stat() on the host disk at runner-init time. Setting
 	// runner.Dir directly bypasses that check and trusts our VFS to
 	// validate the cwd lazily via the StatHandler.
@@ -249,11 +249,11 @@ type dispatchEnv struct {
 // registryDispatchMiddleware returns the ExecHandlers middleware that
 // resolves every non-mvdan-builtin command through reg. The returned
 // middleware ignores `next` for unregistered commands; mvdan/sh's
-// DefaultExecHandler (host os/exec) is therefore never reached. SPEC
+// DefaultExecHandler (host os/exec) is therefore never reached. The spec
 // §5.3 and §8 specify this contract.
 func registryDispatchMiddleware(reg *command.Registry, env dispatchEnv) func(next mvinterp.ExecHandlerFunc) mvinterp.ExecHandlerFunc {
 	return func(next mvinterp.ExecHandlerFunc) mvinterp.ExecHandlerFunc {
-		// next is intentionally unused: SPEC §8 requires we close
+		// next is intentionally unused: the spec requires we close
 		// the os/exec fall-through. Keeping it in the signature
 		// preserves ExecHandlers' chain-of-middlewares shape so a
 		// future phase can prepend tracing or limits middleware
@@ -273,7 +273,7 @@ func registryDispatchMiddleware(reg *command.Registry, env dispatchEnv) func(nex
 
 // lookupCommand resolves name against reg, trying the literal name
 // first and then the basename if name is an absolute path under one
-// of the SPEC §7 stub directories (/bin, /usr/bin).
+// of the spec stub directories (/bin, /usr/bin).
 func lookupCommand(reg *command.Registry, name string) (command.Command, bool) {
 	if reg == nil {
 		return nil, false
@@ -343,7 +343,7 @@ func dispatchCommand(ctx context.Context, cmd command.Command, args []string, re
 	return mvinterp.ExitStatus(clampExit(res.ExitCode))
 }
 
-// notFoundExecHandler is the chain terminator. SPEC §8 mandates this
+// notFoundExecHandler is the chain terminator. The spec mandates this
 // path NEVER reach host os/exec. We emit the canonical `command not
 // found` diagnostic and exit 127, matching real bash.
 func notFoundExecHandler(ctx context.Context, args []string) error {

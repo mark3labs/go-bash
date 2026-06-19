@@ -1,5 +1,5 @@
-// Package compgen implements the `compgen` shell built-in
-// (SPEC §11). Stub: accepts any arguments and exits 0. mvdan/sh may
+// Package compgen implements the `compgen` shell built-in.
+// Stub: accepts any arguments and exits 0. mvdan/sh may
 // shadow the bare name; the registered version is reachable via
 // /bin/compgen.
 package compgen

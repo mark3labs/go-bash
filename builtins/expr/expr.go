@@ -1,4 +1,4 @@
-// Package expr implements the `expr` built-in (SPEC §10 Wave A).
+// Package expr implements the `expr` built-in.
 //
 // expr evaluates a single expression made of operators and operands.
 // Operator precedence (lowest → highest):

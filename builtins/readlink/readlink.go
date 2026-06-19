@@ -1,4 +1,4 @@
-// Package readlink implements the `readlink` built-in (SPEC §10 Wave B).
+// Package readlink implements the `readlink` built-in.
 //
 // Flags: -f, -e, -m (canonicalize variants), -n (no trailing newline).
 package readlink

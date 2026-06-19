@@ -1,4 +1,4 @@
-// Package nl implements the `nl` built-in (SPEC §10 Wave C).
+// Package nl implements the `nl` built-in.
 //
 // Flags: -b STYLE (a=all, t=non-empty (default), n=none),
 //        -n FORMAT (ln/rn/rz), -w WIDTH (default 6),

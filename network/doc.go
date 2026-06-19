@@ -4,7 +4,7 @@
 // errors.As, and the default SecureFetch implementation backed by
 // net/http.
 //
-// # Phase 9 surface (SPEC §9)
+// # Phase 9 surface
 //
 // Five things land in Phase 9:
 //

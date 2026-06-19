@@ -3,7 +3,7 @@
 // Run(t, Suite{...}) from its own _test.go to validate the common
 // semantic subset.
 //
-// The suite tests the operations enumerated in SPEC §3.8: file CRUD,
+// The suite tests the operations enumerated in the spec: file CRUD,
 // dir CRUD, rename, hard link, symlink, lstat, readlink, realpath,
 // chmod, chtimes, mkdir recursive, rm recursive, walk — plus the
 // path-safety invariants (null-byte rejection, traversal containment).

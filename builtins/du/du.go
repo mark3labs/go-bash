@@ -1,4 +1,4 @@
-// Package du implements the `du` built-in (SPEC §10 Wave B).
+// Package du implements the `du` built-in.
 //
 // Flags: -s (summary), -h (human), -a (all files), -c (grand total),
 // -d N / --max-depth=N, -b/-k/-m (unit), -x (no-op single FS).

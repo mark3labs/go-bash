@@ -1,5 +1,4 @@
-// Package sqlite3 registers a stub `sqlite3` built-in (SPEC §10 Wave E /
-// §14). The real driver lands in Phase 14 as a separate opt-in subpackage
+// Package sqlite3 registers a stub `sqlite3` built-in (// §14). The real driver lands in Phase 14 as a separate opt-in subpackage
 // (github.com/mark3labs/go-bash/sqlite). Until then any invocation of
 // `sqlite3` exits non-zero with a "not enabled" diagnostic so scripts
 // that probe for it get a clear failure rather than "command not found".

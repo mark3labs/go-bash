@@ -1,4 +1,4 @@
-// Package sha1sum implements the `sha1sum` built-in (SPEC §10 Wave C).
+// Package sha1sum implements the `sha1sum` built-in.
 package sha1sum
 
 import (

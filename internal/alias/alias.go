@@ -1,5 +1,5 @@
-// Package alias implements parse-time alias expansion for go-bash
-// (SPEC §11). When `shopt expand_aliases` is on, the runtime calls
+// Package alias implements parse-time alias expansion for go-bash.
+// When `shopt expand_aliases` is on, the runtime calls
 // Expand on each parsed *syntax.File before running it; this walks
 // every *syntax.CallExpr and rewrites the first argument when it
 // matches an alias name.

@@ -1,4 +1,4 @@
-// Package mkdir implements the `mkdir` built-in (SPEC §10 Wave B).
+// Package mkdir implements the `mkdir` built-in.
 //
 // Flags: -p (parents, no-error-if-exists), -m MODE.
 package mkdir

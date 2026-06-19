@@ -16,7 +16,7 @@
 //
 // The naive `cmd | tee file` rewrite would shift PIPESTATUS by one
 // position per inserted stage and change the exit status reported via
-// pipefail. SPEC §13.3 calls for porting just-bash's restore semantics
+// pipefail. The spec calls for porting just-bash's restore semantics
 // "faithfully"; the Phase 13 MVP injects the tee but does NOT yet
 // emit the restore-pipeline. Scripts that observe `$PIPESTATUS` or
 // `set -o pipefail` exit codes after a wrapped pipeline will see the

@@ -1,4 +1,4 @@
-// Package tac implements the `tac` built-in (SPEC §10 Wave C).
+// Package tac implements the `tac` built-in.
 //
 // Reads input and writes lines in reverse order.
 package tac

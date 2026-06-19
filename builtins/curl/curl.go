@@ -1,4 +1,4 @@
-// Package curl implements the `curl` built-in (SPEC §10 Wave H).
+// Package curl implements the `curl` built-in.
 //
 // This is NOT a real curl(1); it is a thin wrapper around the
 // network.Doer plumbed through Context.Fetch. All HTTP/HTTPS traffic

@@ -1,4 +1,4 @@
-// Package local implements the `local` shell built-in (SPEC §11).
+// Package local implements the `local` shell built-in.
 // `local NAME[=VALUE]...` declares a function-local variable. mvdan/sh
 // handles this via *syntax.DeclClause when used inside a function. Our
 // registration is reachable via /bin/local and rejects use outside a

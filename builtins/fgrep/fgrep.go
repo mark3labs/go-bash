@@ -1,5 +1,5 @@
 // Package fgrep implements the `fgrep` built-in — grep with the
-// fixed-string (-F) mode as the default. SPEC §10 Wave D.
+// fixed-string (-F) mode as the default. The spec Wave D.
 package fgrep
 
 import (

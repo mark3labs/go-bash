@@ -13,7 +13,7 @@ import (
 	"github.com/mark3labs/go-bash/command"
 )
 
-// PrintHelp writes usage + a trailing newline to w. SPEC §10 contract:
+// PrintHelp writes usage + a trailing newline to w. The spec contract:
 // --help exits 0 with usage written to stdout. The trailing newline
 // matches real GNU coreutils.
 func PrintHelp(w io.Writer, usage string) {
@@ -24,7 +24,7 @@ func PrintHelp(w io.Writer, usage string) {
 }
 
 // UsageError writes "usage: <usage>\n" to stderr and returns the
-// canonical exit-2 result. SPEC §10 contract: unknown options exit 2
+// canonical exit-2 result. The spec contract: unknown options exit 2
 // with "usage: ..." to stderr, except where real bash silently
 // ignores them (callers that need the bash-silent behavior should
 // not call this helper).

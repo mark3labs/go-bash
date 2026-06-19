@@ -1,4 +1,4 @@
-// Package find implements the `find` built-in (SPEC §10 Wave C).
+// Package find implements the `find` built-in.
 //
 // Supports the GNU expression language: -name, -iname, -type, -size,
 // -mtime, -newer, -prune, -print, -print0, -not, -and, -or, parens,

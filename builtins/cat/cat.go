@@ -1,4 +1,4 @@
-// Package cat implements the `cat` built-in (SPEC §10 Wave C).
+// Package cat implements the `cat` built-in.
 //
 // Flags: -n number all lines, -b number non-blank lines, -E show $ at
 // line-ends, -T show tabs as ^I, -A like -vET, -s squeeze blank lines,

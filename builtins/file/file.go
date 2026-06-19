@@ -1,4 +1,4 @@
-// Package file implements the `file` built-in (SPEC §10 Wave B).
+// Package file implements the `file` built-in.
 //
 // Provides a small subset of `file(1)`'s detection: directories,
 // symlinks, empty files, ASCII text, UTF-8 text, and binary data.

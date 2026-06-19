@@ -1,7 +1,7 @@
 // Package ringbuf provides a bounded output writer used by the bash
-// runtime to enforce SPEC §2.1's MaxOutputSize limit.
+// runtime to enforce the spec's MaxOutputSize limit.
 //
-// Despite the package name (which mirrors SPEC §0.4's layout table), the
+// Despite the package name (which mirrors the spec's layout table), the
 // current implementation is a forward-only limited writer; the "ring"
 // semantics — where over-cap writes overwrite the oldest bytes — are not
 // needed for the limit-enforcement path. The package name is kept so the

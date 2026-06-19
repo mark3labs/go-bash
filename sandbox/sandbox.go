@@ -7,7 +7,7 @@
 // network allow-list. The "sandbox" name reflects the SDK shape, not an
 // extra layer of isolation.
 //
-// Cited surface: SPEC §17.
+// Cited surface: the spec
 package sandbox
 
 import (
@@ -57,7 +57,7 @@ type Options struct {
 	OverlayRoot string
 
 	// Network is forwarded to BashOptions.Network. Nil leaves
-	// network disabled (SPEC §9).
+	// network disabled.
 	Network *network.Config
 }
 

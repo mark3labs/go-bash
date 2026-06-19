@@ -1,4 +1,4 @@
-// Package fold implements the `fold` built-in (SPEC §10 Wave C).
+// Package fold implements the `fold` built-in.
 //
 // Flags: -w WIDTH, -s break at spaces, -b count bytes (default chars).
 package fold

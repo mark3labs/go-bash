@@ -1,4 +1,4 @@
-// Package unset implements the `unset` shell built-in (SPEC §11).
+// Package unset implements the `unset` shell built-in.
 // `unset [-v|-f] NAME...` removes variables or functions. mvdan/sh
 // ships its own; the registered version reachable via /bin/unset
 // mutates only c.Env / c.ExportedEnv (no propagation to runner).

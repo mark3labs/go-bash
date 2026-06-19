@@ -1,4 +1,4 @@
-// Package expand implements the `expand` built-in (SPEC §10 Wave C).
+// Package expand implements the `expand` built-in.
 //
 // Flags: -t LIST (tab stops), -i convert leading tabs only.
 package expand

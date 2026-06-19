@@ -1,4 +1,4 @@
-// Package cut implements the `cut` built-in (SPEC §10 Wave C).
+// Package cut implements the `cut` built-in.
 //
 // Flags:
 //   -f LIST   field list

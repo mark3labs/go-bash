@@ -1,4 +1,4 @@
-// Package wc implements the `wc` built-in (SPEC §10 Wave C).
+// Package wc implements the `wc` built-in.
 //
 // Flags: -l lines, -w words, -c bytes, -m chars, -L max-line-length.
 package wc

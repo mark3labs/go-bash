@@ -1,4 +1,4 @@
-// Package which implements the `which` built-in (SPEC §10 Wave A).
+// Package which implements the `which` built-in.
 //
 // Resolution order:
 //

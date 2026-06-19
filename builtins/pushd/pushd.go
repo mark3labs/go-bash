@@ -1,4 +1,4 @@
-// Package pushd implements the `pushd` shell built-in (SPEC §11).
+// Package pushd implements the `pushd` shell built-in.
 // Stub: validates the target exists via c.FS.Stat, prints "TARGET\n",
 // exits 0. mvdan/sh ships its own; reachable via /bin/pushd.
 package pushd

@@ -1,4 +1,4 @@
-// Package tail implements the `tail` built-in (SPEC §10 Wave C).
+// Package tail implements the `tail` built-in.
 //
 // Flags:
 //   -n N  last N lines (default 10); -n +N start from line N

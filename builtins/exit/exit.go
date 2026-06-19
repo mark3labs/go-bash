@@ -1,4 +1,4 @@
-// Package exit implements the `exit` shell built-in (SPEC §11).
+// Package exit implements the `exit` shell built-in.
 // `exit [N]` sets the script's exit status to N (default 0). mvdan/sh
 // implements exit as a built-in that unwinds the runner; the
 // registered version here is reachable via /bin/exit and reports the

@@ -10,8 +10,8 @@ import (
 )
 
 // Parser-side hard limits enforced by Parse / ParseString. The values
-// are law per SPEC.md §4.2 and §2.1; do not adjust without updating
-// the spec.
+// are law; do not adjust without updating
+// The spec.
 const (
 	// MaxInputSize caps the byte length of a single Parse call.
 	MaxInputSize = 1 << 20 // 1 MiB

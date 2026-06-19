@@ -1,4 +1,4 @@
-// Package export implements the `export` shell built-in (SPEC §11).
+// Package export implements the `export` shell built-in.
 // mvdan/sh handles `export` as a *syntax.DeclClause at the parser
 // level, so the bare command word is intercepted before reaching our
 // registry. The registered version here is reachable via /bin/export

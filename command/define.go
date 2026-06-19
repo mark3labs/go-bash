@@ -3,7 +3,7 @@ package command
 import "context"
 
 // Define wraps a plain function in a Command, mirroring the TS
-// `defineCommand` helper from SPEC §8.4. The resulting Command's
+// `defineCommand` helper from the spec The resulting Command's
 // Name is the supplied string; Trusted is true (the sandbox-untrust
 // case is opt-in via DefineUntrusted once Phase 17 needs it).
 //

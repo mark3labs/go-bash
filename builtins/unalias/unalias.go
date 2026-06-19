@@ -1,4 +1,4 @@
-// Package unalias implements the `unalias` built-in (SPEC §10 Wave G).
+// Package unalias implements the `unalias` built-in.
 //
 // Usage:
 //

@@ -1,5 +1,5 @@
-// Package yq implements the `yq` data-format swiss-army built-in
-// (SPEC §10 Wave E). Reads YAML/JSON/XML/TOML/CSV, optionally applies a
+// Package yq implements the `yq` data-format swiss-army built-in.
+// Reads YAML/JSON/XML/TOML/CSV, optionally applies a
 // gojq filter, and emits any of the same formats.
 //
 // Flags:

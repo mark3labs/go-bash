@@ -1,4 +1,4 @@
-// Package getopts implements the `getopts` shell built-in (SPEC §11).
+// Package getopts implements the `getopts` shell built-in.
 // A faithful port requires per-loop persistent state (OPTIND, OPTARG),
 // which the registered version cannot mutate in the runner's vars.
 // We implement a single-shot stub that ALWAYS reports "no more options"

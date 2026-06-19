@@ -34,7 +34,7 @@ func (p *callRecorder) Transform(ctx transform.Context) transform.Result {
 	}
 }
 
-// TestPhase13PipelineNoOpWhenEmpty pins SPEC §13 acceptance:
+// TestPhase13PipelineNoOpWhenEmpty pins the spec acceptance:
 // when zero plugins are registered, Bash.Exec runs unchanged and
 // BashExecResult.Metadata is nil (no allocation).
 func TestPhase13PipelineNoOpWhenEmpty(t *testing.T) {
@@ -54,7 +54,7 @@ func TestPhase13PipelineNoOpWhenEmpty(t *testing.T) {
 	}
 }
 
-// TestPhase13PluginsFireInOrder pins SPEC §13.4 acceptance: plugins
+// TestPhase13PluginsFireInOrder pins the spec acceptance: plugins
 // fire in registration order on every Exec call.
 func TestPhase13PluginsFireInOrder(t *testing.T) {
 	var firstCalls, secondCalls, thirdCalls int
@@ -119,7 +119,7 @@ func TestPhase13RegisterTransformPlugin(t *testing.T) {
 	}
 }
 
-// TestPhase13CommandCollectorViaExec pins SPEC §13.3: the
+// TestPhase13CommandCollectorViaExec pins the spec: the
 // CommandCollectorPlugin's metadata surfaces from BashExecResult.
 func TestPhase13CommandCollectorViaExec(t *testing.T) {
 	b, err := gobash.New(gobash.BashOptions{
@@ -148,7 +148,7 @@ func TestPhase13CommandCollectorViaExec(t *testing.T) {
 	}
 }
 
-// TestPhase13TeePluginViaExec pins SPEC §13.3: the TeePlugin actually
+// TestPhase13TeePluginViaExec pins the spec: the TeePlugin actually
 // mirrors stdout into /OUT/<idx>-<cmd>.stdout.txt files within the
 // Bash VFS.
 func TestPhase13TeePluginViaExec(t *testing.T) {

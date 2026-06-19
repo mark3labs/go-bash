@@ -1,5 +1,5 @@
 // Package mapfile implements the `mapfile` / `readarray` shell
-// built-ins (SPEC §11). Reads stdin line-by-line into an "array"
+// built-ins. Reads stdin line-by-line into an "array"
 // represented as c.Env entries `<NAME>_<INDEX>`. The runner-side
 // array semantics are not propagated (mvdan/sh's native mapfile does
 // that); /bin/mapfile and /bin/readarray here are best-effort.

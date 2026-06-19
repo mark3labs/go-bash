@@ -1,5 +1,5 @@
 // Package egrep implements the `egrep` built-in — grep with the
-// extended-regex (-E) mode as the default. SPEC §10 Wave D.
+// extended-regex (-E) mode as the default. The spec Wave D.
 package egrep
 
 import (

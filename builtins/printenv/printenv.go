@@ -1,4 +1,4 @@
-// Package printenv implements the `printenv` built-in (SPEC §10 Wave G).
+// Package printenv implements the `printenv` built-in.
 //
 // Usage:
 //

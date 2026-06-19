@@ -1,4 +1,4 @@
-// Package head implements the `head` built-in (SPEC §10 Wave C).
+// Package head implements the `head` built-in.
 //
 // Flags:
 //   -n N  show first N lines (default 10); -n -N drops trailing N

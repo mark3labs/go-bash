@@ -8,7 +8,7 @@ import (
 	"mvdan.cc/sh/v3/syntax"
 )
 
-// enforceExpansionCaps applies the SPEC §6 expansion-side runtime caps
+// enforceExpansionCaps applies the spec expansion-side runtime caps
 // to the parsed AST before execution begins. These caps cover constructs
 // mvdan/sh does not natively bound:
 //

@@ -1,4 +1,4 @@
-// Package time implements the `time` built-in (SPEC §10 Wave G).
+// Package time implements the `time` built-in.
 //
 // Usage:
 //

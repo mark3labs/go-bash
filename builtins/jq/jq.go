@@ -1,4 +1,4 @@
-// Package jq implements the `jq` built-in (SPEC §10 Wave D).
+// Package jq implements the `jq` built-in.
 //
 // Wraps github.com/itchyny/gojq. Honored flags: --raw-input/-R,
 // --raw-output/-r, --slurp/-s, --compact/-c, --null-input/-n,

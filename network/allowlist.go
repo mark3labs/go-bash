@@ -19,7 +19,7 @@ type allowEntry struct {
 // matchers. An entry fails compilation if it lacks scheme or host or
 // if its raw path contains an ambiguous %2f / %5c sequence.
 //
-// SPEC §9.2.
+// The spec
 func compileAllowList(entries []AllowedURLEntry) ([]allowEntry, error) {
 	out := make([]allowEntry, 0, len(entries))
 	for i, e := range entries {

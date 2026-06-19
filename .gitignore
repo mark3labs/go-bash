@@ -11,5 +11,5 @@
 .vscode/
 
 # Optional: don't commit the imported just-bash sources if a future tooling
-# step pulls them in for fixture import. Reference paths live in SPEC.md.
+# step pulls them in for fixture import.
 /reference/just-bash/

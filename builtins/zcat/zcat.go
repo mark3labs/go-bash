@@ -1,5 +1,5 @@
 // Package zcat implements the `zcat` built-in — `gunzip -c` shorthand.
-// SPEC §10 Wave F.
+// The spec Wave F.
 package zcat
 
 import (

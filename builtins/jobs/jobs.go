@@ -1,4 +1,4 @@
-// Package jobs implements the `jobs` shell built-in (SPEC §11).
+// Package jobs implements the `jobs` shell built-in.
 // Stub: no background jobs in go-bash (background runs synchronously),
 // so this prints nothing and exits 0.
 package jobs

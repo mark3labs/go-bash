@@ -1,4 +1,4 @@
-// Package eval implements the `eval` shell built-in (SPEC §11).
+// Package eval implements the `eval` shell built-in.
 // Concatenates its arguments with spaces and runs the result via
 // c.Exec. Bumps c.SourceDepth + 1 into the sub-exec options so
 // MaxSourceDepth caps nested invocations.

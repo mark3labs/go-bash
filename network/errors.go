@@ -7,7 +7,7 @@ import "fmt"
 // when an otherwise-allowed URL resolves only to private addresses
 // while DenyPrivateRanges is enabled.
 //
-// SPEC §9.4.
+// The spec
 type NetworkAccessDeniedError struct {
 	URL    string
 	Reason string
@@ -23,7 +23,7 @@ func (e *NetworkAccessDeniedError) Error() string {
 // TooManyRedirectsError is returned when a request would exceed
 // Config.MaxRedirects redirect hops.
 //
-// SPEC §9.4.
+// The spec
 type TooManyRedirectsError struct {
 	Max int
 }
@@ -36,7 +36,7 @@ func (e *TooManyRedirectsError) Error() string {
 // allow-list re-validation. The two URLs are the source and the
 // rejected destination, matching the TS error shape.
 //
-// SPEC §9.4.
+// The spec
 type RedirectNotAllowedError struct {
 	From string
 	To   string
@@ -49,7 +49,7 @@ func (e *RedirectNotAllowedError) Error() string {
 // MethodNotAllowedError is returned when the request's method is not
 // in Config.AllowedMethods (and DangerouslyAllowFullAccess is false).
 //
-// SPEC §9.4.
+// The spec
 type MethodNotAllowedError struct {
 	Method string
 	URL    string
@@ -63,7 +63,7 @@ func (e *MethodNotAllowedError) Error() string {
 // Config.MaxResponseSize bytes. The body is not buffered into
 // Response.Body when this error fires.
 //
-// SPEC §9.4.
+// The spec
 type ResponseTooLargeError struct {
 	Max int64
 }

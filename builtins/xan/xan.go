@@ -1,4 +1,4 @@
-// Package xan implements the `xan` CSV toolkit built-in (SPEC §10 Wave E).
+// Package xan implements the `xan` CSV toolkit built-in.
 //
 // Subset matching just-bash's port: subcommands `select`, `slice`,
 // `filter`, `count`, `flatten`, `headers`, `stats`, `cat`, `to`, `from`.

@@ -1,4 +1,4 @@
-// Package truecmd implements the `true` built-in (SPEC §10 Wave A).
+// Package truecmd implements the `true` built-in.
 // `true` always exits 0; the only flag it honors is --help.
 package truecmd
 
@@ -18,7 +18,7 @@ func New() command.Command {
 }
 
 func run(_ context.Context, args []string, c *command.Context) command.Result {
-	// SPEC §10: only --help is honored; other args are ignored to
+	// The spec: only --help is honored; other args are ignored to
 	// match real bash (`true --unknown` exits 0 silently).
 	for _, a := range args[1:] {
 		if a == "--help" {

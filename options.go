@@ -12,7 +12,7 @@ import (
 // BashOptions configures a Bash environment at construction time.
 //
 // Phase 1 wires only the fields whose types are defined in this package.
-// Subsequent phases extend this struct in place — see SPEC.md §1.2:
+// Subsequent phases extend this struct in place —:
 //   - Phase 3 added Files (map[string]FileInit) and FS (fs.FileSystem)
 //   - Phase 8 added Commands ([]command.Name) and CustomCommands
 //   - Phase 9 adds Fetch (network.Doer) and Network (*network.Config)
@@ -47,7 +47,7 @@ type BashOptions struct {
 	// Phase 8 lands the filter wiring; Phase 10 lands the built-ins
 	// the filter actually selects from. Until Phase 10 the only
 	// observable effect is on Bash.Registry().Names() and the
-	// derived SPEC §7 /bin/X stub set.
+	// derived the spec /bin/X stub set.
 	Commands []command.Name
 
 	// CustomCommands override or extend the built-in registry. Each
@@ -106,7 +106,7 @@ type ExecOptions struct {
 
 // ProcessInfo carries virtualized process identifiers exposed to scripts
 // via $$, $PPID, etc. Zero value yields the package defaults (see
-// SPEC §1.2: PID=1, PPID=0, UID=1000, GID=1000).
+// The spec: PID=1, PPID=0, UID=1000, GID=1000).
 type ProcessInfo struct {
 	PID  int
 	PPID int
@@ -124,8 +124,8 @@ type SleepFunc = command.SleepFunc
 // Aliased to command.TraceFunc; see note on SleepFunc.
 type TraceFunc = command.TraceFunc
 
-// InvokeToolFunc is the host hook invoked from JavaScript-side tool calls
-// (see SPEC Phase 15). It returns the tool's JSON-serialized result.
+// InvokeToolFunc is the host hook invoked from JavaScript-side tool calls.
+// It returns the tool's JSON-serialized result.
 // Aliased to command.InvokeToolFunc.
 type InvokeToolFunc = command.InvokeToolFunc
 

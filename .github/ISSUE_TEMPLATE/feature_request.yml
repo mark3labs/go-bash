@@ -58,7 +58,7 @@ body:
       label: Scope check
       description: Does this fit go-bash's scope (sandboxed in-process bash for AI agents)? Or is it better suited for a downstream wrapper?
       placeholder: |
-        Fits the scope — execution limits are a first-class concern (SPEC §2),
+        Fits the scope — execution limits are a first-class concern,
         and this is a strict refinement of the existing MaxOutputSize knob.
 
   - type: checkboxes
@@ -78,5 +78,5 @@ body:
       options:
         - label: I've searched existing issues and this hasn't been requested yet
           required: true
-        - label: This feature aligns with go-bash's scope (a sandboxed in-process bash interpreter for AI agents — see SPEC.md for what's in/out of scope)
+        - label: This feature aligns with go-bash's scope (a sandboxed in-process bash interpreter for AI agents)
           required: false

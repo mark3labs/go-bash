@@ -1,5 +1,5 @@
 // Package gunzip implements the `gunzip` built-in — gzip with the
-// decompress mode as the default. SPEC §10 Wave F.
+// decompress mode as the default. The spec Wave F.
 package gunzip
 
 import (

@@ -1,4 +1,4 @@
-// Package whoami implements the `whoami` built-in (SPEC §10 Wave A).
+// Package whoami implements the `whoami` built-in.
 // Always prints "user" (matches just-bash; the sandbox does not expose
 // a real user identity to scripts).
 package whoami

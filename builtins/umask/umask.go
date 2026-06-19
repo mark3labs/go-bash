@@ -1,4 +1,4 @@
-// Package umask implements the `umask` shell built-in (SPEC §11).
+// Package umask implements the `umask` shell built-in.
 // With no args, prints the current mask as a 4-digit octal. With a
 // numeric arg, would set the mask — we accept and discard. mvdan/sh
 // does NOT implement umask; this is the canonical surface.
@@ -16,7 +16,7 @@ import (
 
 const usage = "umask [-S] [MODE]"
 
-// defaultMask is the SPEC §11 stub default.
+// defaultMask is the spec stub default.
 const defaultMask = 0o022
 
 // New returns the umask command.

@@ -1,5 +1,5 @@
-// Package continuecmd implements the `continue` shell built-in
-// (SPEC §11). Stub: accepts any arguments and exits 0. mvdan/sh may
+// Package continuecmd implements the `continue` shell built-in.
+// Stub: accepts any arguments and exits 0. mvdan/sh may
 // shadow the bare name; the registered version is reachable via
 // /bin/continue.
 package continuecmd

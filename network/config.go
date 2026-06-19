@@ -23,7 +23,7 @@ var DefaultAllowedMethods = []string{"GET", "HEAD"}
 // to enable any traffic at all, set AllowedURLPrefixes or
 // DangerouslyAllowFullAccess.
 //
-// SPEC §9.1.
+// The spec
 type Config struct {
 	// AllowedURLPrefixes whitelists specific origins (scheme+host[+port])
 	// and optionally a path prefix and per-entry header transforms. An
@@ -77,7 +77,7 @@ type Config struct {
 // scheme://host[:port][/path] prefix; Transform lists header
 // rewrites applied on every matching request hop.
 //
-// SPEC §9.1.
+// The spec
 type AllowedURLEntry struct {
 	// URL is the prefix to allow. Must include scheme and host. The
 	// path component is treated as a literal prefix — entry URL
@@ -97,7 +97,7 @@ type AllowedURLEntry struct {
 // RequestTransform is a header overlay applied to a matching request.
 // Headers replace any existing header of the same name.
 //
-// SPEC §9.1.
+// The spec
 type RequestTransform struct {
 	// Headers is the name → value overlay. Header names are
 	// canonicalized via http.CanonicalHeaderKey before application.
@@ -107,7 +107,7 @@ type RequestTransform struct {
 // DNSLookupResult is one resolved address from Config.DNSResolve.
 // Family is the AF_* constant: 4 for AF_INET, 6 for AF_INET6.
 //
-// SPEC §9.1.
+// The spec
 type DNSLookupResult struct {
 	// Address is the textual representation (192.0.2.1 or 2001:db8::1).
 	Address string

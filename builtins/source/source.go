@@ -1,10 +1,10 @@
-// Package source implements the `source` and `.` shell built-ins
-// (SPEC §11). Reads a script file from c.FS and runs it via c.Exec.
+// Package source implements the `source` and `.` shell built-ins.
+// Reads a script file from c.FS and runs it via c.Exec.
 // Bumps c.SourceDepth + 1 into the SubExecOptions so MaxSourceDepth
 // trips cleanly across nested invocations.
 //
 // mvdan/sh ships its own; reachable via /bin/source or /bin/. — but
-// the spec specifically lists `source`/`.` as the canonical depth
+// The spec specifically lists `source`/`.` as the canonical depth
 // counters, so we route them through c.Exec.
 package source
 

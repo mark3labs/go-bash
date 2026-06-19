@@ -1,4 +1,4 @@
-// Package tar implements the `tar` built-in (SPEC §10 Wave F).
+// Package tar implements the `tar` built-in.
 //
 // Supports the GNU/BSD tar flag subset:
 //

@@ -11,7 +11,7 @@ import (
 )
 
 // TestNewZeroOptions covers the Phase 1 acceptance criterion that
-// Bash constructs with no options (SPEC §1.4).
+// Bash constructs with no options.
 func TestNewZeroOptions(t *testing.T) {
 	b, err := gobash.New(gobash.BashOptions{})
 	if err != nil {
@@ -23,7 +23,7 @@ func TestNewZeroOptions(t *testing.T) {
 }
 
 // TestExecEchoHello covers the Phase 1 acceptance criterion that
-// `echo hello` returns Stdout: "hello\n", ExitCode: 0 (SPEC §1.4).
+// `echo hello` returns Stdout: "hello\n", ExitCode: 0.
 func TestExecEchoHello(t *testing.T) {
 	b, err := gobash.New(gobash.BashOptions{})
 	if err != nil {
@@ -42,7 +42,7 @@ func TestExecEchoHello(t *testing.T) {
 }
 
 // TestExecExitCode covers the Phase 1 acceptance criterion that
-// `exit 7` reports ExitCode: 7 with no error (SPEC §1.4).
+// `exit 7` reports ExitCode: 7 with no error.
 func TestExecExitCode(t *testing.T) {
 	b, err := gobash.New(gobash.BashOptions{})
 	if err != nil {
@@ -58,7 +58,7 @@ func TestExecExitCode(t *testing.T) {
 }
 
 // TestExecMidScriptCancellation covers the Phase 1 acceptance criterion
-// that mid-script context cancellation surfaces context.Canceled (SPEC §1.4).
+// that mid-script context cancellation surfaces context.Canceled.
 //
 // Phase 2 enforces MaxLoopIterations / MaxCommandCount; this test bumps
 // them well past anything the busy loop could reach in 50ms so the only
@@ -90,7 +90,7 @@ func TestExecMidScriptCancellation(t *testing.T) {
 
 // TestExecStdoutWriterPassthrough confirms that a caller-provided Stdout
 // writer bypasses string capture, and that result.Stdout is empty in that
-// case. This guards the io.Writer-first stream contract (SPEC §0.1).
+// case. This guards the io.Writer-first stream contract.
 func TestExecStdoutWriterPassthrough(t *testing.T) {
 	b, err := gobash.New(gobash.BashOptions{})
 	if err != nil {

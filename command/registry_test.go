@@ -7,7 +7,7 @@ import (
 	"github.com/mark3labs/go-bash/command"
 )
 
-// TestRegistryRegisterLookup is the SPEC §8.2 acceptance:
+// TestRegistryRegisterLookup is the spec acceptance:
 // Register puts a command into the registry; Lookup retrieves it.
 func TestRegistryRegisterLookup(t *testing.T) {
 	r := command.NewRegistry()
@@ -37,7 +37,7 @@ func TestRegistryLookupMissing(t *testing.T) {
 }
 
 // TestRegistryNamesSorted asserts the Names() return is sorted —
-// SPEC §7's /bin stub list depends on this for reproducibility.
+// The spec's /bin stub list depends on this for reproducibility.
 func TestRegistryNamesSorted(t *testing.T) {
 	r := command.NewRegistry()
 	for _, n := range []string{"foo", "bar", "baz"} {
@@ -58,7 +58,7 @@ func TestRegistryNamesSorted(t *testing.T) {
 }
 
 // TestRegistryRegisterOverwrites is the "CustomCommands override
-// built-ins" SPEC §1.2 contract — a later Register on the same Name
+// built-ins" the spec contract — a later Register on the same Name
 // replaces the previous entry.
 func TestRegistryRegisterOverwrites(t *testing.T) {
 	r := command.NewRegistry()

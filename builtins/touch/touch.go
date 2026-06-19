@@ -1,4 +1,4 @@
-// Package touch implements the `touch` built-in (SPEC §10 Wave B).
+// Package touch implements the `touch` built-in.
 //
 // Flags: -c (no-create), -m (mtime only), -a (atime only),
 // -t STAMP, -r REF, -d DATE.

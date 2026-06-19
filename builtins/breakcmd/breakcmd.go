@@ -1,5 +1,5 @@
-// Package breakcmd implements the `break` shell built-in
-// (SPEC §11). Stub: accepts any arguments and exits 0. mvdan/sh may
+// Package breakcmd implements the `break` shell built-in.
+// Stub: accepts any arguments and exits 0. mvdan/sh may
 // shadow the bare name; the registered version is reachable via
 // /bin/break.
 package breakcmd

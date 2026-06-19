@@ -1,4 +1,4 @@
-// Package rmdir implements the `rmdir` built-in (SPEC §10 Wave B).
+// Package rmdir implements the `rmdir` built-in.
 //
 // Flags: -p (also remove parent dirs if empty).
 package rmdir

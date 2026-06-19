@@ -1,5 +1,4 @@
-// Package printf implements the `printf` built-in (SPEC §10 Wave A,
-// §10.18 details).
+// Package printf implements the `printf` built-in (/ §10.18 details).
 //
 // The implementation handles the bash extensions Go's fmt does not:
 //

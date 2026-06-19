@@ -1,4 +1,4 @@
-// Package popd implements the `popd` shell built-in (SPEC §11).
+// Package popd implements the `popd` shell built-in.
 // Stub: we have no dir stack, so popd always reports "directory stack
 // empty" and exits 1. mvdan/sh ships its own; reachable via /bin/popd.
 package popd

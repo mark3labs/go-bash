@@ -1,4 +1,4 @@
-// Package column implements the `column` built-in (SPEC §10 Wave C).
+// Package column implements the `column` built-in.
 //
 // Flags: -t format into table, -s SEP input separator, -o SEP output
 // separator, -n disable empty-column merging.

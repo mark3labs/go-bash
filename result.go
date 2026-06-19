@@ -1,7 +1,7 @@
 package gobash
 
 // ExecResult is the basic outcome of a script execution. A non-zero
-// ExitCode is not, by itself, an error (see SPEC §0.1).
+// ExitCode is not, by itself, an error.
 type ExecResult struct {
 	Stdout   string
 	Stderr   string

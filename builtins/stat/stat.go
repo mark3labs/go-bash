@@ -1,4 +1,4 @@
-// Package stat implements the `stat` built-in (SPEC §10 Wave B).
+// Package stat implements the `stat` built-in.
 //
 // Supports -c FORMAT with %-codes %n %s %F %a %A %u %g %x %y %z %i
 // %h %d %t %T. Default format mirrors GNU stat.

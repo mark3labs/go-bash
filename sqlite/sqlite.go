@@ -2,11 +2,11 @@
 // this package and call Register to replace the Phase 10 Wave H stub
 // with a real, pure-Go SQLite driver (modernc.org/sqlite).
 //
-// The package adheres to the no-cgo policy (SPEC §0.2): modernc.org/sqlite
+// The package adheres to the no-cgo policy: modernc.org/sqlite
 // is a pure-Go transpilation of upstream SQLite, so `CGO_ENABLED=0`
 // builds continue to succeed.
 //
-// Cited surface: SPEC §14.
+// Cited surface: the spec
 package sqlite
 
 import (
@@ -31,7 +31,7 @@ import (
 )
 
 // Options configures the sqlite3 runtime. The zero value is valid: the
-// command falls back to ResolvedLimits.MaxSqliteTimeout (SPEC §2.1).
+// command falls back to ResolvedLimits.MaxSqliteTimeout.
 type Options struct {
 	// Timeout caps the wall-clock duration of a single sqlite3
 	// invocation. When ≤ 0 the per-Exec ResolvedLimits.MaxSqliteTimeout
@@ -166,7 +166,7 @@ func runOnce(ctx context.Context, args []string, c *command.Context, opts Option
 
 	// Open the database. For file-backed DBs we shuttle the VFS file
 	// to a host tmpfile for the query duration and write any mutations
-	// back when the query completes (SPEC §14, MVP file-DB path).
+	// back when the query completes.
 	dsn, cleanup, err := prepareDSN(c, dbArg)
 	if err != nil {
 		return builtinutil.Errorf(c.Stderr, "sqlite3", 1, "%v", err)

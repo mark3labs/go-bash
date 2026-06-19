@@ -8,8 +8,8 @@ import (
 )
 
 // TestDefaultResolvedLimits asserts that the default values produced by
-// ResolveLimits(nil) match the table frozen in SPEC §2.1 exactly. The
-// values are law; any divergence here must be reconciled in SPEC.md before
+// ResolveLimits(nil) match the table frozen in the spec exactly. The
+// values are law; any divergence here must be reconciled in the spec before
 // the build can proceed.
 func TestDefaultResolvedLimits(t *testing.T) {
 	got := gobash.ResolveLimits(nil)

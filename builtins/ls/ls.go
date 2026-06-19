@@ -1,4 +1,4 @@
-// Package ls implements the `ls` built-in (SPEC §10 Wave B).
+// Package ls implements the `ls` built-in.
 //
 // Flags: -l -a -A -d -F -h -i -R -1 -t -S -r -L -n -p --color.
 package ls

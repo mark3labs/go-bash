@@ -12,9 +12,9 @@ similar bash constructs, builtin set, and VFS shape — but running
 in-process under a Go runtime, with `CGO_ENABLED=0` builds and no
 `os/exec` reachable from script context.
 
-**Note**: This is beta software. The public API is phase-stable (see
-`SPEC.md`), but byte-level output of some builtins may shift as we close
-gaps against real bash. Pin a version in `go.mod`. See [security
+**Note**: This is beta software. The public API is stable, but
+byte-level output of some builtins may shift as we close gaps against
+real bash. Pin a version in `go.mod`. See [security
 model](#security-model).
 
 ## Quick Start
@@ -120,8 +120,8 @@ the real runtime), `xan` (CSV), `yq` (YAML/XML/TOML/CSV)
 
 - `sqlite3` — pure-Go `modernc.org/sqlite`, opt-in via
   `sqlite.Register`
-- `js-exec` (JavaScript) — **planned** (SPEC §15; not built yet)
-- `python3` / `python` — **planned** (SPEC §16; not built yet)
+- `js-exec` (JavaScript) — **planned**
+- `python3` / `python` — **planned**
 
 ### Compression & Archives
 
@@ -458,14 +458,14 @@ Queries run with a configurable timeout (default 5 s) enforced via
 
 ### JavaScript Support
 
-**Planned (SPEC §15, not built yet).** When implemented, the
+**Planned.** When implemented, the
 `jsexec/` subpackage will provide `js-exec` backed by
 `github.com/dop251/goja` (pure Go, no cgo). The TS port uses QuickJS;
 the Go port will use goja for the same `CGO_ENABLED=0` guarantee.
 
 ### Python Support
 
-**Planned (SPEC §16, not built yet).** Unlike just-bash (which
+**Planned.** Unlike just-bash (which
 embeds CPython compiled to WASM), go-bash will NOT embed CPython.
 The `pythonexec/` subpackage will expose a `Runtime` interface that
 the host implements — typically by routing to `docker run python:3.13`
@@ -688,27 +688,22 @@ failure modes you'll want to surface back to the model.
 
 ## Status
 
-go-bash is implemented phase by phase against the spec in
-[`SPEC.md`](SPEC.md). Current state (Phase 18 complete):
+go-bash is feature-complete for its core runtime, builtins, sandbox
+API, and CLI:
 
-| Phase | Status |
+| Area | Status |
 |---|---|
-| 1–14 | Complete (runtime + builtins + sqlite) |
-| 15 | Deferred (JavaScript runtime via goja) |
-| 16 | Pending (Python via host hook) |
-| 17 | Complete (sandbox API) |
-| 18 | Complete (CLI) |
-| 19 | Pending (bulk fixture import) |
-| 20 | Complete (docs — this file) |
-| 21 | Pending (lint analyzers + fuzz corpus + benchmarks) |
-
-See [`HANDOFF.md`](HANDOFF.md) for the current state in detail.
+| Runtime + builtins | Complete |
+| SQLite runtime | Complete |
+| Sandbox API | Complete |
+| CLI | Complete |
+| JavaScript runtime (via goja) | Deferred |
+| Python runtime (via host hook) | Pending |
 
 ## Contributing
 
 If you're working on go-bash internals (not using it as a library),
-read [`BUILDING.md`](BUILDING.md) — the build-time coordination doc
-and per-phase workflow.
+start with `AGENTS.md` and the package-level docs.
 
 ## License
 

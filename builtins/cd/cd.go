@@ -1,4 +1,4 @@
-// Package cd implements the `cd` shell built-in (SPEC §11). Real bash
+// Package cd implements the `cd` shell built-in. Real bash
 // semantics: change the working directory; mvdan/sh ships its own `cd`
 // that mutates the runner's Dir. Our registration is reachable via
 // /bin/cd and CANNOT mutate the runner's Dir (it has no back-channel),

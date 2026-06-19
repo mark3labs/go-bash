@@ -1,4 +1,4 @@
-// Package diff implements the `diff` built-in (SPEC §10 Wave C).
+// Package diff implements the `diff` built-in.
 //
 // Flags: -u unified, -q brief, -r recursive, -N treat absent as empty,
 // -y side-by-side (minimal). Exit codes: 0 same, 1 different, 2 error.

@@ -1,4 +1,4 @@
-// Package join implements the `join` built-in (SPEC §10 Wave C).
+// Package join implements the `join` built-in.
 //
 // Flags: -1 N -2 N, -t SEP, -a FILE (print unpairable from FILE),
 // -e EMPTY, -o FORMAT (FIELD spec or 'auto').

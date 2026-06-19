@@ -1,4 +1,4 @@
-// Package set implements the `set` shell built-in (SPEC §11). The
+// Package set implements the `set` shell built-in. The
 // command tweaks shell-option flags (-e, -u, -x, -o pipefail, etc.)
 // and positional parameters. mvdan/sh implements `set` natively; the
 // registered version here is reachable via /bin/set as a diagnostic

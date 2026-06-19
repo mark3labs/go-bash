@@ -1,5 +1,5 @@
 // Package sh implements the `sh` built-in — a thin shim around the
-// `bash` built-in (SPEC §10 Wave G). The Go runtime exposes a single
+// `bash` built-in. The Go runtime exposes a single
 // shell flavor; `sh` differs only in name and helper text.
 package sh
 

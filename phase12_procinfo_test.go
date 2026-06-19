@@ -11,14 +11,14 @@ import (
 	"github.com/mark3labs/go-bash/fs"
 )
 
-// SPEC §12 — Process Info & Defaults acceptance tests.
+// The spec — Process Info & Defaults acceptance tests.
 //
 // Phase 12 audits five behaviors that together emulate a deterministic,
 // host-disconnected process identity:
 //
 //  1. $$  resolves to ProcessInfo.PID (default 1), NOT host os.Getpid().
 //  2. $BASHPID starts at ProcessInfo.PID and increments per subshell.
-//  3. /proc/self/status matches the SPEC §11 template byte-for-byte.
+//  3. /proc/self/status matches the spec template byte-for-byte.
 //  4. whoami always prints "user\n".
 //  5. hostname reads /etc/hostname (default "localhost\n").
 //
@@ -104,7 +104,7 @@ func TestPhase12BASHPID(t *testing.T) {
 		}
 	})
 	t.Run("subshell_increments", func(t *testing.T) {
-		// SPEC §12: "each subshell increments a counter". Two
+		// The spec: "each subshell increments a counter". Two
 		// sibling subshells must get distinct values, and the outer
 		// reference must remain procInfo.PID.
 		res := runCapture(t, gobash.BashOptions{},
@@ -141,7 +141,7 @@ func TestPhase12BASHPID(t *testing.T) {
 }
 
 // TestPhase12ProcSelfStatus pins the /proc/self/status template to the
-// byte-exact SPEC §11 layout.
+// byte-exact the spec layout.
 func TestPhase12ProcSelfStatus(t *testing.T) {
 	t.Run("default_procinfo", func(t *testing.T) {
 		b, err := gobash.New(gobash.BashOptions{})
@@ -191,7 +191,7 @@ func TestPhase12Whoami(t *testing.T) {
 		}
 	})
 	t.Run("ignores_uid_change", func(t *testing.T) {
-		// SPEC §12: "whoami always prints `user`" — the literal is
+		// The spec: "whoami always prints `user`" — the literal is
 		// not derived from procInfo.UID. Verify a non-default UID
 		// does not alter the output.
 		pi := gobash.ProcessInfo{PID: 1, PPID: 0, UID: 0, GID: 0}

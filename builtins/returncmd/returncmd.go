@@ -1,4 +1,4 @@
-// Package returncmd implements the `return` shell built-in (SPEC §11).
+// Package returncmd implements the `return` shell built-in.
 // `return [N]` sets the exit code; mvdan/sh ships its own builtin so
 // this is normally reachable via /bin/return.
 package returncmd

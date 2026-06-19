@@ -1,4 +1,4 @@
-// Package alias implements the `alias` built-in (SPEC §10 Wave G).
+// Package alias implements the `alias` built-in.
 //
 // Usage:
 //

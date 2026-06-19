@@ -31,7 +31,7 @@ func TestBashFSDefault(t *testing.T) {
 	}
 }
 
-// TestBashOptionsFilesRoundTrip is the SPEC §3.8 acceptance criterion
+// TestBashOptionsFilesRoundTrip is the spec acceptance criterion
 // for Phase 3: BashOptions.Files round-trips through Bash.FS().ReadFile.
 func TestBashOptionsFilesRoundTrip(t *testing.T) {
 	b, err := gobash.New(gobash.BashOptions{

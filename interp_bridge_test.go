@@ -51,10 +51,10 @@ func TestPhase5SmokeSubshellScope(t *testing.T) {
 	}
 }
 
-// TestPhase5SmokeVFSRedirect mirrors the SPEC.md §11 final smoke test
+// TestPhase5SmokeVFSRedirect mirrors the spec final smoke test
 // against the in-memory VFS — write via `>`, read via `<`, all going
 // through the OpenHandler installed by interp.BuildRunner. The literal
-// `cat greeting.txt` form from SPEC.md line 1611 needs the `cat`
+// `cat greeting.txt` form from the spec line 1611 needs the `cat`
 // built-in from Phase 10 (the stub commandExecHandler currently falls
 // through to mvdan/sh's DefaultExecHandler, which would `os/exec` the
 // host `cat` and miss the VFS). We exercise the redirect side here and

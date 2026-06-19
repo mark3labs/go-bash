@@ -11,7 +11,7 @@ import (
 
 func intPtr(v int) *int { return &v }
 
-// TestMaxLoopIterations covers SPEC §2.4: `while true; do :; done` aborts
+// TestMaxLoopIterations covers the spec: `while true; do :; done` aborts
 // with *ExecutionLimitError{Limit:"MaxLoopIterations"} — not via context
 // cancellation.
 func TestMaxLoopIterations(t *testing.T) {
@@ -61,7 +61,7 @@ func TestMaxLoopIterationsForLoop(t *testing.T) {
 	}
 }
 
-// TestMaxOutputSize covers SPEC §2.4: writing more than MaxOutputSize bytes
+// TestMaxOutputSize covers the spec: writing more than MaxOutputSize bytes
 // to stdout aborts with *ExecutionLimitError{Limit:"MaxOutputSize"}.
 func TestMaxOutputSize(t *testing.T) {
 	b, err := gobash.New(gobash.BashOptions{
@@ -110,7 +110,7 @@ func TestMaxOutputSizeCountsStderr(t *testing.T) {
 	}
 }
 
-// TestMaxCallDepth covers SPEC §2.4: a deeply recursive shell function
+// TestMaxCallDepth covers the spec: a deeply recursive shell function
 // aborts with *ExecutionLimitError{Limit:"MaxCallDepth"}.
 func TestMaxCallDepth(t *testing.T) {
 	b, err := gobash.New(gobash.BashOptions{
@@ -139,7 +139,7 @@ func TestMaxCallDepth(t *testing.T) {
 }
 
 // TestMaxCommandCount confirms the command counter trips when the script
-// runs too many simple commands. Not in SPEC §2.4's explicit acceptance
+// runs too many simple commands. Not in the spec's explicit acceptance
 // list but is part of §2.3's wiring requirement.
 func TestMaxCommandCount(t *testing.T) {
 	b, err := gobash.New(gobash.BashOptions{

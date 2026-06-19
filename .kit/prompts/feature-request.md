@@ -69,7 +69,7 @@ This prompt uses the `feature_request` GitHub template which requires:
 - Consider edge cases and mention them
 - If proposing API changes, show before/after code
 - Check if similar features exist in related tools (mention them for reference)
-- Align with go-bash's scope: a sandboxed in-process bash interpreter for AI agents (see SPEC.md for what's in/out of scope)
+- Align with go-bash's scope: a sandboxed in-process bash interpreter for AI agents
 
 ## Example
 

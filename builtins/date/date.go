@@ -1,4 +1,4 @@
-// Package date implements the `date` built-in (SPEC §10 Wave G).
+// Package date implements the `date` built-in.
 //
 // Usage:
 //
@@ -15,7 +15,7 @@
 //	--help             show this help and exit
 //
 // FORMAT is a strftime-style string (most %-conversions supported);
-// see SPEC §10 Wave G for the supported subset.
+// Wave G for the supported subset.
 //
 // All file I/O routes through Context.FS; stdout via Context.Stdout.
 package date
@@ -143,7 +143,7 @@ done:
 		t = time.Now()
 	}
 
-	// Determine the timezone. SPEC: defaults to UTC unless $TZ is
+	// Determine the timezone. The spec: defaults to UTC unless $TZ is
 	// set; -u forces UTC.
 	loc := time.UTC
 	if !forceUTC {

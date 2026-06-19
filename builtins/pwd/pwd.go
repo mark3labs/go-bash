@@ -1,4 +1,4 @@
-// Package pwd implements the `pwd` built-in (SPEC §10 Wave A).
+// Package pwd implements the `pwd` built-in.
 //
 // Flags:
 //   - -L (default): print the logical working directory verbatim.

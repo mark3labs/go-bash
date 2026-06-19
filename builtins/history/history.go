@@ -1,4 +1,4 @@
-// Package history implements the `history` built-in (SPEC §10 Wave G).
+// Package history implements the `history` built-in.
 //
 // Usage:
 //

@@ -1,4 +1,4 @@
-// Package declare implements the `declare` shell built-in (SPEC §11).
+// Package declare implements the `declare` shell built-in.
 // `declare` doubles as `typeset`. mvdan/sh ships its own
 // `declare`/`local`/`readonly`/`export` via *syntax.DeclClause; the
 // registered version reachable via /bin/declare mutates c.Env as a

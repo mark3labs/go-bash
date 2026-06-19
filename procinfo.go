@@ -21,12 +21,12 @@ import (
 // `$` or `PPID` in the env environ passed to interp.Env(...) has no
 // effect. `BASHPID` is not in the hardcoded set, so it would fall
 // through to env lookup, but the env value would be the same in every
-// subshell — SPEC §12 says BASHPID increments per subshell. An AST
+// subshell — the spec says BASHPID increments per subshell. An AST
 // rewrite is therefore the cleanest hook: we replace each occurrence
 // with a *syntax.Lit holding the desired literal value, leaving every
 // other expansion semantic intact.
 //
-// # SPEC §12 BASHPID counter
+// # the spec BASHPID counter
 //
 // "BASHPID starts at virtual pid; each subshell increments a counter."
 // We walk the AST in DFS pre-order, assigning each *syntax.Subshell

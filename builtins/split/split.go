@@ -1,4 +1,4 @@
-// Package split implements the `split` built-in (SPEC §10 Wave B).
+// Package split implements the `split` built-in.
 //
 // Flags: -l N (lines per file), -b N[K|M|G] (bytes per file),
 // -a SUFFIXLEN, -d (numeric suffixes).

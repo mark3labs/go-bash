@@ -1,4 +1,4 @@
-// Package falsecmd implements the `false` built-in (SPEC §10 Wave A).
+// Package falsecmd implements the `false` built-in.
 // `false` always exits 1; the only flag it honors is --help.
 package falsecmd
 

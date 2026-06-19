@@ -1,7 +1,7 @@
 # DECISIONS.md — vendor / behavior swaps recorded during go-bash
 
 This file collects places where the go-bash implementation knowingly
-diverges from the just-bash TypeScript source, the SPEC.md specification,
+diverges from the just-bash TypeScript source, the specification,
 or the upstream mvdan/sh runtime. Each entry names the phase that
 introduced the swap, the just-bash citation (or "n/a" when we adopted a
 neutral implementation), and the reason.
@@ -52,7 +52,7 @@ and Go could differ. Any deliberate deviation belongs here.
 * **What:** `checkSubstDepth` only treats `*syntax.CmdSubst` and
   `*syntax.ProcSubst` as depth-bumping. `${VAR/.../}` nested inside
   `${VAR/...}` does not count.
-* **Why:** the SPEC §2.1 wording is "MaxSubstitutionDepth" — the
+* **Why:** the spec wording is "MaxSubstitutionDepth" — the
   pathological-recursion case is `$(cmd)` chains. Parameter expansion
   is structurally bounded by `MaxStringLength`. If a future phase
   uncovers a ParamExp-recursion DoS, expand the type switch.
@@ -158,12 +158,12 @@ test that pins the current behavior so we notice if mvdan/sh fixes them.
 
 ## How to add a new entry
 
-1. Cite the SPEC.md section that locks the contract.
+1. Cite the spec section that locks the contract.
 2. Cite the just-bash file:line if a port; "n/a" if a neutral choice.
 3. Spell out the swap, the reason, and the regression test that pins it.
 4. Add the fix plan and the phase that owns it.
 
-Reverting a swap requires updating SPEC.md or its resolved-decisions
+Reverting a swap requires updating the spec or its resolved-decisions
 block at the bottom; do not silently revert.
 
 ---
@@ -317,7 +317,7 @@ Consequences:
   names via `interp.Env(expand.ListEnviron(...))` has no effect — the
   switch wins. Mutating the host process's identity is not a realistic
   option, so an AST rewrite is the only correct way to virtualize
-  these three names. SPEC §12 says `$$` "is the virtual pid, never
+  these three names. The spec says `$$` "is the virtual pid, never
   the host PID" — a hard parity requirement.
 * **Risk / scope:** the rewrite only fires on the "simple" form
   (`$X` or `${X}` with no Length / Width / Index / Slice / Repl / Exp
@@ -336,7 +336,7 @@ Consequences:
   references inside a subshell expand to the innermost enclosing
   subshell's counter; references outside any subshell expand to
   `procInfo.PID`.
-* **Why:** SPEC §12 says "BASHPID starts at virtual pid; each subshell
+* **Why:** The spec says "BASHPID starts at virtual pid; each subshell
   increments a counter". Real bash assigns a fresh PID on `fork(2)`,
   which is what `(...)` triggers. Lexical subshell scope is the
   closest static analogue and matches the just-bash port semantics.
@@ -353,7 +353,7 @@ Consequences:
   (NOT the subshell's BASHPID).
 * **Why:** Real bash's `$$` is "the PID of the calling shell" — it is
   set once and never changes, even in subshells. `BASHPID` is the
-  per-subshell-fork pid. SPEC §12's "$$ = virtualPid (never the host
+  per-subshell-fork pid. The spec's "$$ = virtualPid (never the host
   PID)" pins the parent-only semantics. Pinned by
   `TestPhase12DollarDollar/inside_subshell`.
 
@@ -363,7 +363,7 @@ Consequences:
   `defaultProcessInfo()` (bash.go), exercised in §1 / Phase 1.
 * **`/proc/self/status` template:** rendered in fs_init.go's
   `procSelfStatusTemplate` and written by `applyDefaultLayout` in
-  Phase 7. Byte-exact match to SPEC §11 is pinned by
+  Phase 7. Byte-exact match to the spec is pinned by
   `TestPhase12ProcSelfStatus`.
 * **`whoami` always prints "user":** Phase 10 Wave A
   (`builtins/whoami`). Pinned by `TestPhase12Whoami`.
@@ -402,10 +402,10 @@ Consequences:
 
 * **What:** `TeePlugin.Transform` injects `cmd | tee /OUT/<idx>-<cmd>.stdout.txt`
   after every wrapped pipeline stage but does NOT emit the
-  PIPESTATUS save/restore pipeline SPEC §13.3 calls for "faithful"
+  PIPESTATUS save/restore pipeline the spec calls for "faithful"
   port of `tee-plugin.ts`.
 * **just-bash citation:** `src/transform/plugins/tee-plugin.ts` (not
-  read by this port — we work from the SPEC §13.3 description).
+  read by this port — we work from the spec description).
 * **Why:** PIPESTATUS preservation is a multi-statement rewrite
   (save the array into a tmp var before the tee insertion, restore
   after) and would force a substantial broadening of the inverse
@@ -423,8 +423,7 @@ Consequences:
   to 0 on every invocation; the counter is local to the per-call
   `state` value. Re-running the same Plugin against the same script
   twice produces fresh `0..N-1` indices each time.
-* **Why:** Plugins are documented as shareable across pipelines
-  (SPEC §13.1 — no per-Plugin state contract). A shared counter
+* **Why:** Plugins are documented as shareable across pipelines. A shared counter
   would also produce non-deterministic file paths in tests.
 * **Risk:** If a host pipes the same Plugin instance into multiple
   Bash environments concurrently, the indices are still locally
@@ -435,7 +434,7 @@ Consequences:
 * **What:** TeePlugin wraps every Stmt whose command name matches
   `TargetCommandMatch`, including non-pipeline single commands
   (`echo hi` → `echo hi | tee /OUT/0-echo.stdout.txt`).
-* **Why:** SPEC §13.3 phrases the wrap target as "each non-trivial
+* **Why:** The spec phrases the wrap target as "each non-trivial
   pipeline stage". A bare command is a one-stage pipeline; treating
   it consistently is the least-surprise behavior and keeps the
   per-command-mirror promise from the file naming scheme.
@@ -466,7 +465,7 @@ Consequences:
   hands modernc.org/sqlite that real-disk path as the DSN, then on
   completion reads the host file back and writes it to the VFS
   before deleting the tmp dir.
-* **just-bash citation:** SPEC §14 explicitly endorses this MVP
+* **just-bash citation:** The spec explicitly endorses this MVP
   ("map VFS file → temp file on disk for the query duration, then
   write back"); just-bash itself uses `better-sqlite3` against the
   VFS adapter, which has no Go equivalent.
@@ -511,7 +510,7 @@ Consequences:
   completion. A `done` channel signals the happy-path so the
   goroutine exits without closing the still-good DB twice (a
   second `db.Close()` is a documented no-op anyway).
-* **just-bash citation:** SPEC §14 ("on `ctx.Done()` call
+* **just-bash citation:** The spec ("on `ctx.Done()` call
   `db.Close()` to interrupt"). The TS port uses `better-sqlite3`'s
   `db.interrupt()`; we use `Close()` because modernc has no
   equivalent interrupt API on the public `database/sql` surface.

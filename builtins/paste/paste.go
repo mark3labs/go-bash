@@ -1,4 +1,4 @@
-// Package paste implements the `paste` built-in (SPEC §10 Wave C).
+// Package paste implements the `paste` built-in.
 //
 // Flags: -d DELIMS, -s (serial — paste all lines per file on one line).
 package paste

@@ -1,4 +1,4 @@
-// Package echo implements the `echo` built-in (SPEC §10 Wave A).
+// Package echo implements the `echo` built-in.
 //
 // Flags:
 //   - -n  do not append a trailing newline

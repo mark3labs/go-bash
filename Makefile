@@ -1,6 +1,5 @@
-# go-bash developer tasks. This is the gate the `finalize_phase` tool runs
-# at the end of every phase. Each target must exit 0 for the handoff to be
-# accepted.
+# go-bash developer tasks. `make ci` is the full local gate; each target
+# must exit 0 before changes land.
 
 .PHONY: all ci build vet test test-race lint tidy fmt clean
 
@@ -14,7 +13,7 @@ ci: tidy build vet test-race lint
 tidy:
 	@if [ -f go.mod ]; then go mod tidy; else echo "no go.mod yet — skipping tidy"; fi
 
-## build: compile all packages (CGO disabled — see SPEC §0.2)
+## build: compile all packages (CGO disabled)
 build:
 	@CGO_ENABLED=0 go build ./...
 
@@ -31,7 +30,7 @@ test-race:
 	@GOBASH_TEST_NO_NETWORK=1 go test -race -coverprofile=coverage.out ./...
 	@go tool cover -func=coverage.out | tail -1
 
-## lint: staticcheck + custom lints (no-os-exec, no-net-default — see SPEC §21.1)
+## lint: staticcheck + custom lints (no-os-exec, no-net-default)
 lint:
 	@command -v staticcheck >/dev/null 2>&1 && staticcheck ./... || echo "staticcheck not installed; install: go install honnef.co/go/tools/cmd/staticcheck@latest"
 

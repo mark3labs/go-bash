@@ -47,8 +47,8 @@ func (*Script) nodeMarker() {}
 // in-source separators between pipelines on the same line; the Go port
 // reserves Operators for "&&" and "||" and represents ";"-separated
 // commands as distinct top-level Statements. This preserves the natural
-// 1:1 mapping with mvdan.cc/sh/v3's *syntax.Stmt and is documented as a
-// resolved decision in handoffs/phase-4.md.
+// 1:1 mapping with mvdan.cc/sh/v3's *syntax.Stmt and is a deliberate
+// resolved decision.
 type Statement struct {
 	Pipelines  []*Pipeline
 	Operators  []string // each "&&" or "||"; len = len(Pipelines)-1

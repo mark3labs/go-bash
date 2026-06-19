@@ -1,4 +1,4 @@
-// Package chmod implements the `chmod` built-in (SPEC §10 Wave B).
+// Package chmod implements the `chmod` built-in.
 //
 // Modes: numeric "755" or symbolic "u+x,g-w,o=r". Flags: -R recursive,
 // -v verbose, -c (changes-only verbose).

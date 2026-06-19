@@ -1,4 +1,4 @@
-// Package mv implements the `mv` built-in (SPEC §10 Wave B).
+// Package mv implements the `mv` built-in.
 //
 // Preserves permissions; falls back to copy+remove when c.FS.Rename
 // returns a cross-device-like error.

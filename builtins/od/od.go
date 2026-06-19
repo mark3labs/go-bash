@@ -1,4 +1,4 @@
-// Package od implements the `od` built-in (SPEC §10 Wave C).
+// Package od implements the `od` built-in.
 //
 // Flags: -A {d|o|x|n} address radix, -t TYPE output type,
 // -v don't suppress duplicates, -w COLS bytes per row.

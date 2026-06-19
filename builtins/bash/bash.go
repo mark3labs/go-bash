@@ -1,4 +1,4 @@
-// Package bash implements the `bash` built-in (SPEC §10 Wave G).
+// Package bash implements the `bash` built-in.
 //
 // Usage:
 //

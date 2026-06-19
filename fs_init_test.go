@@ -9,9 +9,9 @@ import (
 	gbfs "github.com/mark3labs/go-bash/fs"
 )
 
-// defaultLayoutPaths mirrors the SPEC §7 directory list. Kept as a
+// defaultLayoutPaths mirrors the spec directory list. Kept as a
 // test-local slice so a divergence between the production helper and
-// the spec lights up here as a missing path rather than as a silent
+// The spec lights up here as a missing path rather than as a silent
 // agreement with a buggy helper.
 var defaultLayoutPaths = []string{
 	"/",
@@ -27,7 +27,7 @@ var defaultLayoutPaths = []string{
 	"/proc/self",
 }
 
-// TestPhase7DefaultLayoutPresent asserts every SPEC §7 directory
+// TestPhase7DefaultLayoutPresent asserts every the spec directory
 // exists in the VFS after New(BashOptions{}), and that the two
 // templated files /etc/hostname and /proc/self/status were written.
 func TestPhase7DefaultLayoutPresent(t *testing.T) {
@@ -59,7 +59,7 @@ func TestPhase7DefaultLayoutPresent(t *testing.T) {
 	}
 	status := string(statusBytes)
 	// Sanity-check the structural fields and default ProcessInfo
-	// values (PID=1, PPID=0, UID=1000, GID=1000 per SPEC §1.2).
+	// values (PID=1, PPID=0, UID=1000, GID=1000).
 	for _, want := range []string{
 		"Name:\tbash\n",
 		"Pid:\t1\n",

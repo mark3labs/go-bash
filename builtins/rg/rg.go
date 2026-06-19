@@ -1,5 +1,4 @@
-// Package rg implements the `rg` (ripgrep) built-in subset (SPEC §10
-// Wave D). Only the flags just-bash supports are implemented:
+// Package rg implements the `rg` (ripgrep) built-in subset (/ Wave D). Only the flags just-bash supports are implemented:
 // -i -v -n -c -l -A -B -C -e -t TYPE -g GLOB --hidden --no-ignore --json.
 //
 // The `--json` flag emits JSON Lines matching ripgrep's

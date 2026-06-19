@@ -1,4 +1,4 @@
-// Package readonly implements the `readonly` shell built-in (SPEC §11).
+// Package readonly implements the `readonly` shell built-in.
 // mvdan/sh handles this via *syntax.DeclClause. The registered version
 // reachable via /bin/readonly is a best-effort surface that records
 // assignments into c.Env (the "readonly" attribute is NOT tracked —

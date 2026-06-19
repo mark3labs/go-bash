@@ -1,4 +1,4 @@
-// Package md5sum implements the `md5sum` built-in (SPEC §10 Wave C).
+// Package md5sum implements the `md5sum` built-in.
 package md5sum
 
 import (

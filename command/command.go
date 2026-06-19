@@ -7,7 +7,7 @@
 //
 // Phase 8 lands the registry skeleton and the dispatch plumbing. The
 // Context shape is intentionally minimal — only the fields whose
-// types are stable in Phases 1–8. SPEC §8.1 lists additional fields
+// types are stable in Phases 1–8. The spec lists additional fields
 // (Fetch, Sleep, Trace, Limits, InvokeTool, FDs, JSBootstrap, etc.);
 // each lands in the phase that owns its dependency:
 //
@@ -19,7 +19,7 @@
 //
 // Adding fields is non-breaking; reserving them in the spec is enough.
 //
-// Cited surface: SPEC §8.1, §8.2, §8.4. Reference (read-only):
+// Cited surface: the spec, §8.2, §8.4. Reference (read-only):
 // vercel-labs/just-bash, src/commands/registry.ts.
 package command
 
@@ -48,7 +48,7 @@ type Name string
 // non-zero Result.ExitCode is NOT an error — it is reported through
 // the runner as the script's exit status.
 //
-// SPEC §8.1: the interface also includes a Trusted() bool used only
+// The spec: the interface also includes a Trusted() bool used only
 // by the sandbox subpackage (Phase 17+). Built-ins that opt out of
 // sandbox trust will return false; until the sandbox lands, every
 // implementation returns true and the runtime ignores the value.
@@ -74,7 +74,7 @@ type Command interface {
 // method. The runtime constructs a fresh Context for every command
 // invocation; mutating it is permitted but ephemeral — changes do
 // NOT propagate back to the parent Bash unless the runtime itself
-// writes them back (see Env mutation semantics in SPEC §5.6).
+// writes them back (see Env mutation semantics in the spec).
 //
 // Phase 8 wires the seven fields below; the rest land in their
 // owning phases (see the package doc comment).
@@ -91,7 +91,7 @@ type Context struct {
 
 	// Env is the effective environment at dispatch time. Commands may
 	// mutate this map; the runtime decides whether to persist the
-	// mutation per SPEC §5.6.
+	// mutation
 	Env map[string]string
 
 	// Stdin, Stdout, Stderr are the streams plumbed through from the
@@ -154,10 +154,9 @@ type Context struct {
 
 	// Exec is the sub-shell invocation hook used by the Phase 10
 	// Wave G `bash` / `sh` / `timeout` built-ins (which would
-	// otherwise need to recurse into the runtime). SPEC §8.1 reserves
+	// otherwise need to recurse into the runtime). The spec reserves
 	// this field for Phase 11 (source / eval / .); Wave G needs it
-	// earlier — see handoffs/phase-10.md Decisions for the ordering
-	// note. nil means sub-shell features are unavailable; consumers
+	// earlier. nil means sub-shell features are unavailable; consumers
 	// MUST nil-check and produce a clean diagnostic.
 	Exec SubExecFunc
 

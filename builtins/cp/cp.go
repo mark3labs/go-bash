@@ -1,4 +1,4 @@
-// Package cp implements the `cp` built-in (SPEC §10 Wave B).
+// Package cp implements the `cp` built-in.
 //
 // Flags: -r/-R/-a (recursive/archive), -p (preserve perms+times),
 // -f (force overwrite), -L (follow symlinks), -P (no-follow), -T,

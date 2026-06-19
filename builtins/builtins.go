@@ -12,7 +12,7 @@
 // then drop entries from Bash.Registry() manually; the blank import
 // here is not conditional.
 //
-// Cited surface: SPEC §8.3 ("Lazy loading" — Go has no dynamic
+// Cited surface: the spec ("Lazy loading" — Go has no dynamic
 // import, so we replace it with side-effect registration).
 package builtins
 

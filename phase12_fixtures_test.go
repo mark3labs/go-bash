@@ -7,7 +7,7 @@ import (
 	"github.com/mark3labs/go-bash/internal/cmpfixture"
 )
 
-// TestPhase12ProcInfoFixtures runs the SPEC §12 process-info comparison
+// TestPhase12ProcInfoFixtures runs the spec process-info comparison
 // fixtures. Each pins one acceptance criterion: $$ → procInfo.PID,
 // $PPID → procInfo.PPID, $BASHPID per-subshell counter, and
 // /proc/self/status byte-exact template content.

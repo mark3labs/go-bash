@@ -1,5 +1,5 @@
-// Package grep implements the `grep`, `egrep`, and `fgrep` built-ins
-// (SPEC §10 Wave D). All three share a single implementation
+// Package grep implements the `grep`, `egrep`, and `fgrep` built-ins.
+// All three share a single implementation
 // parameterized by the default regex mode (BRE, ERE, fixed).
 //
 // Flags: -E -F -i -v -n -c -l -L -H -h -r -R -w -x -o -A -B -C

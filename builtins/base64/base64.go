@@ -1,4 +1,4 @@
-// Package base64 implements the `base64` built-in (SPEC §10 Wave C).
+// Package base64 implements the `base64` built-in.
 //
 // Flags: -d decode, -w N line-wrap at N columns (0 disables).
 package base64

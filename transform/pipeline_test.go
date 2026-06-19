@@ -33,7 +33,7 @@ func TestPipelineNoPlugins(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Transform: %v", err)
 	}
-	// SPEC §13.4 expects parse → serialize is a no-op modulo printer
+	// The spec expects parse → serialize is a no-op modulo printer
 	// normalization. We pin the exact output the printer emits for
 	// `echo hi\n` so any later printer-config change is loud.
 	if got.Script != "echo hi\n" {

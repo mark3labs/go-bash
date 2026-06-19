@@ -1,4 +1,4 @@
-// Package clear implements the `clear` built-in (SPEC §10 Wave A).
+// Package clear implements the `clear` built-in.
 // `clear` writes the ANSI clear-screen sequence `\033[H\033[2J` to
 // stdout and exits 0.
 package clear

@@ -1,4 +1,4 @@
-// Package sed implements the `sed` built-in (SPEC §10 Wave D).
+// Package sed implements the `sed` built-in.
 //
 // Implements GNU-ish sed with address forms (line numbers, $, /regex/,
 // ranges N,M, step N~step), commands s/g/i/p/N, d, p, q, n, N, a\, i\,

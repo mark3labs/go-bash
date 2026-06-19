@@ -19,7 +19,7 @@ import (
 //
 // The returned Doer is safe for concurrent use by multiple goroutines.
 //
-// SPEC §9.3.
+// The spec
 func NewSecureFetch(cfg *Config) Doer {
 	resolved := (&Config{}).withDefaults()
 	if cfg != nil {

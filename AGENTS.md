@@ -3,8 +3,8 @@
 This file is the agent-facing operating guide for **go-bash**. If you are
 an AI agent (Claude, GPT, Gemini, etc.) wiring go-bash into a tool-call
 loop, read this in full before issuing any `Exec` calls. If you are a
-human contributor working on go-bash internals, read `BUILDING.md`
-instead.
+human contributor working on go-bash internals, read the package-level
+docs and `DECISIONS.md` instead.
 
 ## What go-bash is
 
@@ -407,6 +407,6 @@ definition. Don't load them from untrusted sources at runtime.
 
 go-bash is MIT licensed.
 
-go-bash is **beta software**. The public surface is stable phase-by-phase
-(see `SPEC.md`), but the byte-level output of some builtins may shift
-as we close gaps against real bash. Pin a version in `go.mod`.
+go-bash is **beta software**. The public surface is stable, but the
+byte-level output of some builtins may shift as we close gaps against
+real bash. Pin a version in `go.mod`.

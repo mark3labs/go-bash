@@ -1,4 +1,4 @@
-// pipeline.go — the transform-plugin orchestrator (SPEC §13.2).
+// pipeline.go — the transform-plugin orchestrator.
 //
 // A Pipeline holds an ordered slice of Plugins. Pipeline.Transform
 // parses the source, walks the slice (handing each plugin the running

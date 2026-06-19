@@ -1,4 +1,4 @@
-// Package basename implements the `basename` built-in (SPEC §10 Wave A).
+// Package basename implements the `basename` built-in.
 //
 // Forms (POSIX + GNU):
 //

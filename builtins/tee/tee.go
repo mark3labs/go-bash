@@ -1,4 +1,4 @@
-// Package tee implements the `tee` built-in (SPEC §10 Wave C).
+// Package tee implements the `tee` built-in.
 //
 // Flags: -a append, -i ignore SIGINT (no-op).
 // Honors Context.Limits.MaxFileDescriptors — too many file operands

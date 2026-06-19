@@ -1,4 +1,4 @@
-// Package sleep implements the `sleep` built-in (SPEC §10 Wave A).
+// Package sleep implements the `sleep` built-in.
 //
 // Accepted durations:
 //

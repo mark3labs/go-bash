@@ -1,4 +1,4 @@
-// Package wait implements the `wait` shell built-in (SPEC §11).
+// Package wait implements the `wait` shell built-in.
 // Background jobs run synchronously in go-bash so `wait` is a no-op
 // that always succeeds. mvdan/sh implements its own `wait`; this
 // registration is reachable via /bin/wait.

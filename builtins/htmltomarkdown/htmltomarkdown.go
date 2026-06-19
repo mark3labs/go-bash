@@ -1,5 +1,5 @@
-// Package htmltomarkdown implements the `html-to-markdown` built-in
-// (SPEC §10 Wave H). It reads HTML from stdin or the first positional
+// Package htmltomarkdown implements the `html-to-markdown` built-in.
+// It reads HTML from stdin or the first positional
 // file argument and writes CommonMark Markdown to stdout. The
 // conversion is delegated to github.com/JohannesKaufmann/html-to-markdown/v2
 // (BSD-3-Clause, pure-Go).

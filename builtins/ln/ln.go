@@ -1,4 +1,4 @@
-// Package ln implements the `ln` built-in (SPEC §10 Wave B).
+// Package ln implements the `ln` built-in.
 //
 // Flags: -s (symbolic), -f (force remove existing target).
 package ln

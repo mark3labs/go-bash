@@ -1,4 +1,4 @@
-// Package dirname implements the `dirname` built-in (SPEC §10 Wave A).
+// Package dirname implements the `dirname` built-in.
 //
 // Strips the last component of each NAME (after trimming trailing
 // slashes) and prints the remainder. "/" stays "/", a name with no

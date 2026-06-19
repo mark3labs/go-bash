@@ -1,4 +1,4 @@
-// Package read implements the `read` shell built-in (SPEC §11).
+// Package read implements the `read` shell built-in.
 //
 // Reads one line from c.Stdin and assigns it to the named variable(s)
 // in c.Env. mvdan/sh ships its own `read` that mutates runner vars

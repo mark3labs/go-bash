@@ -8,7 +8,7 @@ import (
 
 // ExecutionLimits caps script behavior. A nil field falls through to the
 // documented default; a non-nil pointer field overrides per-construction.
-// The full default table is frozen in SPEC.md §2.1.
+// The full default table is frozen in the spec
 type ExecutionLimits struct {
 	MaxCallDepth             *int
 	MaxCommandCount          *int
@@ -40,7 +40,7 @@ type ExecutionLimits struct {
 type ResolvedLimits = command.Limits
 
 // DefaultLimits returns the fully-resolved default execution limits. The
-// values are law — they must match SPEC.md §2.1 exactly. Tests assert
+// values are law — they must match the spec exactly. Tests assert
 // this; do not adjust either side without updating the spec.
 func DefaultLimits() ResolvedLimits {
 	const mib10 = 10 * 1024 * 1024

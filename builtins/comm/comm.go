@@ -1,4 +1,4 @@
-// Package comm implements the `comm` built-in (SPEC §10 Wave C).
+// Package comm implements the `comm` built-in.
 //
 // Flags: -1 -2 -3 suppress the corresponding column.
 package comm

@@ -1,4 +1,4 @@
-// Package test implements the `[` and `test` shell built-ins (SPEC §11).
+// Package test implements the `[` and `test` shell built-ins.
 //
 // `[ EXPR ]` — required closing `]`. `test EXPR` — no closing bracket.
 // Supports the POSIX-shape tests: string (-z/-n/=/!=), integer (-eq,

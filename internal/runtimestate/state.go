@@ -21,7 +21,7 @@ import (
 	"sync"
 )
 
-// DefaultHistorySize is the SPEC §10 Wave G ring capacity for the
+// DefaultHistorySize is the spec Wave G ring capacity for the
 // `history` built-in (last 500 commands).
 const DefaultHistorySize = 500
 
@@ -206,7 +206,7 @@ type ShoptTable struct {
 	m  map[string]bool
 }
 
-// NewShoptTable returns an empty shopt table. Per SPEC §6.5 the
+// NewShoptTable returns an empty shopt table. Per the spec the
 // runtime preseeds a small set of defaults; callers do that
 // explicitly via Set after construction.
 func NewShoptTable() *ShoptTable { return &ShoptTable{m: make(map[string]bool)} }

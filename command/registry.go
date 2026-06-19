@@ -7,7 +7,7 @@ import "sort"
 // runtime registers everything at New time and the registry is
 // effectively frozen after that).
 //
-// Cited surface: SPEC §8.2. Reference (read-only):
+// Cited surface: the spec Reference (read-only):
 // vercel-labs/just-bash, src/commands/registry.ts (CommandRegistry).
 type Registry struct {
 	cmds map[Name]Command
@@ -32,7 +32,7 @@ func NewRegistry() *Registry {
 // names when adding built-ins.
 //
 // The Phase 8 runtime registers CustomCommands BEFORE built-ins (per
-// SPEC §1.2 "override built-ins") and the built-in registration loop
+// The spec "override built-ins") and the built-in registration loop
 // skips names already present — see gobash.New.
 func (r *Registry) Register(c Command) {
 	if c == nil {
@@ -53,7 +53,7 @@ func (r *Registry) Lookup(name string) (Command, bool) {
 }
 
 // Names returns every registered command name, sorted for
-// determinism. The sort matters: SPEC §7 materializes one /bin/X
+// determinism. The sort matters: the spec materializes one /bin/X
 // stub per registered name, and a stable order keeps the FS layout
 // reproducible across runs.
 func (r *Registry) Names() []Name {

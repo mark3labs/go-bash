@@ -1,4 +1,4 @@
-// Package colon implements the `:` (colon) shell built-in (SPEC §11).
+// Package colon implements the `:` (colon) shell built-in.
 // It does nothing and exits 0. mvdan/sh ships its own `:` builtin so
 // this implementation is normally shadowed; invoke `/bin/:` to reach
 // it through the registry.

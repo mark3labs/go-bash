@@ -1,4 +1,4 @@
-// Package strings implements the `strings` built-in (SPEC §10 Wave C).
+// Package strings implements the `strings` built-in.
 //
 // Flags: -n MIN (default 4), -a (all sections — no-op since we have
 // no sections), -t {d,o,x} print offset prefix.

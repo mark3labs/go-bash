@@ -1,4 +1,4 @@
-// Package help implements the `help` built-in (SPEC §10 Wave G).
+// Package help implements the `help` built-in.
 //
 // Usage:
 //

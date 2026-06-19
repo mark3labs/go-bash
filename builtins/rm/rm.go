@@ -1,4 +1,4 @@
-// Package rm implements the `rm` built-in (SPEC §10 Wave B).
+// Package rm implements the `rm` built-in.
 //
 // Flags: -r/-R (recursive), -f (force), -i (interactive — REJECTED in
 // sandbox), -d (remove empty directories).

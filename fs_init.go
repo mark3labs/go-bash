@@ -8,7 +8,7 @@ import (
 	gbfs "github.com/mark3labs/go-bash/fs"
 )
 
-// SPEC.md §7 — Filesystem Init & Default Layout.
+// The spec — Filesystem Init & Default Layout.
 //
 // When New(BashOptions{}) is called with no Cwd and no Files, gobash
 // populates the in-memory FS with the canonical layout below, plus a
@@ -25,12 +25,11 @@ import (
 // (e.g. a sandbox subshell with its own VFS) can call it without
 // touching the env map.
 //
-// Cited surface: SPEC §7. Layout list, /etc/hostname content, and
+// Cited surface: the spec Layout list, /etc/hostname content, and
 // /proc/self/status template match the just-bash TS port one-to-one
 // (Reference: vercel-labs/just-bash, src/fs/init.ts).
 
-// defaultLayoutDirs is the canonical directory list (SPEC §7, in
-// creation order). MkdirAll is idempotent on every FileSystem
+// defaultLayoutDirs is the canonical directory list (/ creation order). MkdirAll is idempotent on every FileSystem
 // implementation in fs/, so re-entry is safe.
 var defaultLayoutDirs = []string{
 	"/",
@@ -46,11 +45,11 @@ var defaultLayoutDirs = []string{
 	"/proc/self",
 }
 
-// defaultHostname is the literal /etc/hostname content per SPEC §7.
+// defaultHostname is the literal /etc/hostname content
 // The trailing newline matches real bash's hostname(1) expectations.
 const defaultHostname = "localhost\n"
 
-// procSelfStatusTemplate is the /proc/self/status text from SPEC §11
+// procSelfStatusTemplate is the /proc/self/status text from the spec
 // (referenced by §7). Tab-separated, ProcessInfo-interpolated. The
 // four Uid/Gid columns mirror Linux's real /proc/self/status format
 // (real, effective, saved-set, filesystem); gobash uses ProcessInfo's
@@ -91,7 +90,7 @@ func defaultBinStubs(reg *command.Registry) []string {
 // and safe even if the host accidentally tries to exec it.
 const binStubBody = "#!/bin/sh\n# gobash builtin stub — handled by registry dispatch\nexit 0\n"
 
-// applyDefaultLayout writes the SPEC §7 default layout into target,
+// applyDefaultLayout writes the spec default layout into target,
 // using info to template /proc/self/status and reg to derive the
 // /bin/X stub set. Returns the first FS error encountered, if any.
 // Callers may choose to ignore the returned error (matching the

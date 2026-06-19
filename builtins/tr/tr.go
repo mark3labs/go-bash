@@ -1,4 +1,4 @@
-// Package tr implements the `tr` built-in (SPEC §10 Wave C).
+// Package tr implements the `tr` built-in.
 //
 // Supports character classes ([:alpha:], [:digit:], [:upper:],
 // [:lower:], [:space:], [:punct:], [:xdigit:], [:alnum:], [:cntrl:],

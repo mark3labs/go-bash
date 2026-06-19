@@ -1,4 +1,4 @@
-// Package seq implements the `seq` built-in (SPEC §10 Wave A).
+// Package seq implements the `seq` built-in.
 //
 // Forms:
 //

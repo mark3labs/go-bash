@@ -1,4 +1,4 @@
-// Package let implements the `let` shell built-in (SPEC §11).
+// Package let implements the `let` shell built-in.
 //
 // `let EXPR...` evaluates each arithmetic expression. The exit code
 // is 0 if the last result is non-zero, 1 if it is zero (matching bash).

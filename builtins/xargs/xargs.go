@@ -1,4 +1,4 @@
-// Package xargs implements the `xargs` built-in (SPEC §10 Wave C).
+// Package xargs implements the `xargs` built-in.
 //
 // Flags: -0 NUL-delimited, -n MAX-ARGS, -I REPL string replace,
 // -P N parallel (goroutine-bounded), --max-args=N, -d DELIM, -a FILE.

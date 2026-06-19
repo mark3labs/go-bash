@@ -289,7 +289,7 @@ cap. Hosts that need defense against large result sets must add
 
 #### 4.4.2 JavaScript (`jsexec/` subpackage)
 
-**Status**: NOT IMPLEMENTED in this build. SPEC §15 plans a
+**Status**: NOT IMPLEMENTED in this build. The spec plans a
 `goja`-backed runtime with `MaxJsTimeout` enforced via
 `goja.Runtime.Interrupt`. Since goja is pure Go, no cgo, the JS
 runtime would be isolated from the host by Go's normal type safety
@@ -301,7 +301,7 @@ script context.
 
 #### 4.4.3 Python (`pythonexec/` subpackage)
 
-**Status**: NOT IMPLEMENTED. SPEC §16 plans a host-supplied
+**Status**: NOT IMPLEMENTED. The spec plans a host-supplied
 `Runtime` interface — the host wires up CPython externally (e.g.
 via `docker run python:3.13` or a real `python3` binary). go-bash
 does NOT embed CPython. When the host opts in to a real-process
@@ -345,7 +345,7 @@ expansion haven't been exhaustively fuzzed.
 
 `$BASHPID` is bumped only by lexical `(...)` subshells, NOT by
 background `&`, process substitution, or pipeline stages. This is
-documented in `HANDOFF.md` as a deliberate decision to match
+documented in `DECISIONS.md` as a deliberate decision to match
 mvdan/sh's call-frame structure rather than real bash's per-fork
 PID semantics (Go has no fork). Scripts relying on `$BASHPID` as
 a unique-per-stage ID will see collisions in those cases.

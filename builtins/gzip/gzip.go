@@ -1,5 +1,5 @@
-// Package gzip implements the `gzip`, `gunzip`, and `zcat` built-ins
-// (SPEC §10 Wave F). All three share a single implementation
+// Package gzip implements the `gzip`, `gunzip`, and `zcat` built-ins.
+// All three share a single implementation
 // parameterized by the default mode (compress, decompress, decompress-to-stdout).
 //
 // Flags:

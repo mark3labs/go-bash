@@ -10,7 +10,7 @@ import (
 	"github.com/mark3labs/go-bash/parser"
 )
 
-// TestParseAcceptanceShape covers SPEC §4.4: Parse("echo $((1+2)) | grep o")
+// TestParseAcceptanceShape covers the spec: Parse("echo $((1+2)) | grep o")
 // yields a Script with one statement / one pipeline / two SimpleCommands.
 func TestParseAcceptanceShape(t *testing.T) {
 	script, err := parser.Parse("echo $((1+2)) | grep o")

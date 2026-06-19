@@ -1,4 +1,4 @@
-// Package env implements the `env` built-in (SPEC §10 Wave G).
+// Package env implements the `env` built-in.
 //
 // Usage:
 //

@@ -1,11 +1,11 @@
-// Package awk implements the `awk` built-in (SPEC §10 Wave D).
+// Package awk implements the `awk` built-in.
 //
 // Wraps github.com/benhoyt/goawk/interp. The runtime is sandboxed:
 // we disable goawk's file-read / file-write / exec capabilities and
 // route all input through c.FS / c.Stdin. Honors
 // Context.Limits.MaxAwkIterations as a derived ctx deadline (goawk
 // 1.31 exposes ExecuteContext but no per-iteration progress hook —
-// upstream issue candidate; see handoffs/phase-10.md).
+// upstream issue candidate).
 package awk
 
 import (

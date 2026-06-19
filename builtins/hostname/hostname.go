@@ -1,4 +1,4 @@
-// Package hostname implements the `hostname` built-in (SPEC §10 Wave A).
+// Package hostname implements the `hostname` built-in.
 // Reads /etc/hostname from the VFS; defaults to "localhost" when the
 // file is missing or empty. Setting the hostname is not supported in
 // the sandboxed FS (matches just-bash).

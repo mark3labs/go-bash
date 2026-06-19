@@ -1,4 +1,4 @@
-// Package uniq implements the `uniq` built-in (SPEC §10 Wave C).
+// Package uniq implements the `uniq` built-in.
 //
 // Flags: -c count, -d only repeated, -D all repeated, -u only unique,
 // -i case-fold, -f N skip fields, -s N skip chars, -w N compare chars.

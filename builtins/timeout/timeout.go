@@ -1,4 +1,4 @@
-// Package timeout implements the `timeout` built-in (SPEC §10 Wave G).
+// Package timeout implements the `timeout` built-in.
 //
 // Usage:
 //

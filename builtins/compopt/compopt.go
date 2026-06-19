@@ -1,5 +1,5 @@
-// Package compopt implements the `compopt` shell built-in
-// (SPEC §11). Stub: accepts any arguments and exits 0. mvdan/sh may
+// Package compopt implements the `compopt` shell built-in.
+// Stub: accepts any arguments and exits 0. mvdan/sh may
 // shadow the bare name; the registered version is reachable via
 // /bin/compopt.
 package compopt
